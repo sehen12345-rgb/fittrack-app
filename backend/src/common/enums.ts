@@ -1,0 +1,55 @@
+export enum GoalType {
+  DIET = 'DIET',
+  BULK = 'BULK',
+  MAINTENANCE = 'MAINTENANCE',
+}
+
+export enum ActivityLevel {
+  SEDENTARY = 'SEDENTARY',
+  LIGHTLY_ACTIVE = 'LIGHTLY_ACTIVE',
+  MODERATELY_ACTIVE = 'MODERATELY_ACTIVE',
+  VERY_ACTIVE = 'VERY_ACTIVE',
+  EXTRA_ACTIVE = 'EXTRA_ACTIVE',
+}
+
+export enum Gender {
+  MALE = 'MALE',
+  FEMALE = 'FEMALE',
+  OTHER = 'OTHER',
+}
+
+export enum MealType {
+  BREAKFAST = 'BREAKFAST',
+  LUNCH = 'LUNCH',
+  DINNER = 'DINNER',
+  SNACK = 'SNACK',
+}
+
+export enum WorkoutCategory {
+  STRENGTH = 'STRENGTH',
+  CARDIO = 'CARDIO',
+  FLEXIBILITY = 'FLEXIBILITY',
+  SPORTS = 'SPORTS',
+}
+
+export enum AuthProvider {
+  LOCAL = 'LOCAL',
+  GOOGLE = 'GOOGLE',
+  KAKAO = 'KAKAO',
+  NAVER = 'NAVER',
+}
+
+export enum NotificationType {
+  MEAL_REMINDER = 'MEAL_REMINDER',
+  WORKOUT_REMINDER = 'WORKOUT_REMINDER',
+  GOAL_PROGRESS = 'GOAL_PROGRESS',
+  WEIGHT_ALERT = 'WEIGHT_ALERT',
+  ACHIEVEMENT = 'ACHIEVEMENT',
+  WEEKLY_REPORT = 'WEEKLY_REPORT',
+}
+
+export enum FoodSource {
+  SYSTEM = 'SYSTEM',
+  USER_CREATED = 'USER_CREATED',
+  OPEN_FOOD_FACTS = 'OPEN_FOOD_FACTS',
+}
