@@ -11,12 +11,12 @@ dayjs.locale('ko')
 export default function AchievementsPage() {
   const { data: myAchievements = [], isLoading: loadingMy } = useQuery({
     queryKey: ['achievements', 'my'],
-    queryFn: () => achievementsApi.getMy() as Promise<any[]>,
+    queryFn: () => achievementsApi.getMy().then((r: any) => r as any[]),
   })
 
   const { data: allAchievements = [], isLoading: loadingAll } = useQuery({
     queryKey: ['achievements', 'all'],
-    queryFn: () => achievementsApi.getAll() as Promise<any[]>,
+    queryFn: () => achievementsApi.getAll().then((r: any) => r as any[]),
   })
 
   const isLoading = loadingMy || loadingAll

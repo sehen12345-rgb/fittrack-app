@@ -30,7 +30,7 @@ function NavContent({ pathname, onNavigate }: { pathname: string; onNavigate?: (
 
   const { data: notifications = [] } = useQuery({
     queryKey: ['notifications'],
-    queryFn: () => notificationsApi.getAll() as Promise<any[]>,
+    queryFn: () => notificationsApi.getAll().then((r: any) => r as any[]),
     refetchInterval: 60000,
   })
   const unreadCount = (notifications as any[]).filter((n) => !n.isRead).length

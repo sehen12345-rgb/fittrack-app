@@ -23,7 +23,7 @@ export default function NotificationsPage() {
   const queryClient = useQueryClient()
   const { data: notifications = [], isLoading } = useQuery({
     queryKey: ['notifications'],
-    queryFn: () => notificationsApi.getAll() as Promise<any[]>,
+    queryFn: () => notificationsApi.getAll().then((r: any) => r as any[]),
   })
 
   const markRead = useMutation({
