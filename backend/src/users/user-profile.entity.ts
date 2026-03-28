@@ -18,7 +18,7 @@ export class UserProfile {
   @JoinColumn()
   user: User;
 
-  @Column({ type: 'varchar' })
+  @Column({ type: 'varchar', nullable: true })
   gender: Gender;
 
   @Column({ nullable: true, type: 'date' })
