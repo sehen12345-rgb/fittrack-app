@@ -39,7 +39,7 @@ export class WorkoutService {
   async countLogDays(userId: string): Promise<number> {
     const result = await this.logRepo
       .createQueryBuilder('log')
-      .select("COUNT(DISTINCT strftime('%Y-%m-%d', log.workoutDate))", 'days')
+      .select('COUNT(DISTINCT DATE(log.workoutDate))', 'days')
       .where('log.userId = :userId', { userId })
       .getRawOne();
     return Number(result.days) || 0;
