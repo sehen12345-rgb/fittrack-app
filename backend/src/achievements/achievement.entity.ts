@@ -1,5 +1,5 @@
 import {
-  Entity, PrimaryGeneratedColumn, Column, CreateDateColumn,
+  Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, ManyToOne, JoinColumn,
 } from 'typeorm';
 
 @Entity('achievements')
@@ -33,6 +33,10 @@ export class UserAchievement {
 
   @Column()
   achievementId: string;
+
+  @ManyToOne(() => Achievement, { eager: false })
+  @JoinColumn({ name: 'achievementId' })
+  achievement: Achievement;
 
   @CreateDateColumn()
   unlockedAt: Date;
