@@ -113,6 +113,15 @@ export class FoodService {
     });
   }
 
+  async countLogDays(userId: string): Promise<number> {
+    const result = await this.foodLogRepo
+      .createQueryBuilder('log')
+      .select("COUNT(DISTINCT strftime('%Y-%m-%d', log.loggedAt))", 'days')
+      .where('log.userId = :userId', { userId })
+      .getRawOne();
+    return Number(result.days) || 0;
+  }
+
   async getDailySummary(userId: string, date: string) {
     const start = dayjs(date).startOf('day').toDate();
     const end = dayjs(date).endOf('day').toDate();

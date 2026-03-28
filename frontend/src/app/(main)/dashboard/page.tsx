@@ -3,6 +3,7 @@
 import { useQuery } from '@tanstack/react-query'
 import { analyticsApi } from '@/lib/api'
 import CalorieSummaryCard from '@/components/dashboard/CalorieSummaryCard'
+import PetCharacter from '@/components/dashboard/PetCharacter'
 import { TrendingUp, Dumbbell, Scale, Target, Plus, ArrowRight } from 'lucide-react'
 import dayjs from 'dayjs'
 import 'dayjs/locale/ko'
@@ -43,51 +44,63 @@ export default function DashboardPage() {
         <p className="text-gray-500 text-sm mt-1">오늘도 목표를 향해 나아가봐요</p>
       </div>
 
-      {/* 메인 카드 + 사이드 카드 */}
+      {/* 메인 카드 + 캐릭터 + 사이드 카드 */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 mb-5">
-        <div className="lg:col-span-2">
+        <div className="lg:col-span-2 flex flex-col gap-5">
           <CalorieSummaryCard
             goal={d?.goal}
             food={d?.food ?? { totalCalories: 0, totalProtein: 0, totalCarb: 0, totalFat: 0 }}
             caloriesBurned={d?.workout?.totalCaloriesBurned ?? 0}
             netCalories={d?.netCalories ?? 0}
           />
+          <div className="grid grid-cols-2 gap-4">
+            {/* 운동 카드 */}
+            <div className="card">
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-10 h-10 rounded-xl bg-orange-100 flex items-center justify-center">
+                  <Dumbbell size={18} className="text-orange-500" />
+                </div>
+                <span className="text-sm font-medium text-gray-500">오늘 운동</span>
+              </div>
+              <p className="text-3xl font-bold text-gray-900">{d?.workout?.sessionCount ?? 0}
+                <span className="text-lg font-semibold text-gray-400 ml-1">세션</span>
+              </p>
+              <p className="text-sm text-gray-400 mt-1">{d?.workout?.totalCaloriesBurned ?? 0} kcal 소모</p>
+              <Link href="/workout-log" className="flex items-center gap-1 text-xs text-blue-500 font-medium mt-3 hover:text-blue-700">
+                운동 기록하기 <ArrowRight size={12} />
+              </Link>
+            </div>
+            {/* 체중 카드 */}
+            <div className="card">
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-10 h-10 rounded-xl bg-blue-100 flex items-center justify-center">
+                  <Scale size={18} className="text-blue-500" />
+                </div>
+                <span className="text-sm font-medium text-gray-500">현재 체중</span>
+              </div>
+              <p className="text-3xl font-bold text-gray-900">
+                {d?.latestWeight ? `${d.latestWeight}` : '—'}
+                <span className="text-lg font-semibold text-gray-400 ml-1">kg</span>
+              </p>
+              <Link href="/body-metrics" className="flex items-center gap-1 text-xs text-blue-500 font-medium mt-3 hover:text-blue-700">
+                체중 기록하기 <ArrowRight size={12} />
+              </Link>
+            </div>
+          </div>
         </div>
 
-        <div className="flex flex-col gap-4">
-          {/* 운동 카드 */}
-          <div className="card flex-1">
-            <div className="flex items-center gap-3 mb-3">
-              <div className="w-10 h-10 rounded-xl bg-orange-100 flex items-center justify-center">
-                <Dumbbell size={18} className="text-orange-500" />
-              </div>
-              <span className="text-sm font-medium text-gray-500">오늘 운동</span>
-            </div>
-            <p className="text-3xl font-bold text-gray-900">{d?.workout?.sessionCount ?? 0}
-              <span className="text-lg font-semibold text-gray-400 ml-1">세션</span>
-            </p>
-            <p className="text-sm text-gray-400 mt-1">{d?.workout?.totalCaloriesBurned ?? 0} kcal 소모</p>
-            <Link href="/workout-log" className="flex items-center gap-1 text-xs text-blue-500 font-medium mt-3 hover:text-blue-700">
-              운동 기록하기 <ArrowRight size={12} />
-            </Link>
-          </div>
-
-          {/* 체중 카드 */}
-          <div className="card flex-1">
-            <div className="flex items-center gap-3 mb-3">
-              <div className="w-10 h-10 rounded-xl bg-blue-100 flex items-center justify-center">
-                <Scale size={18} className="text-blue-500" />
-              </div>
-              <span className="text-sm font-medium text-gray-500">현재 체중</span>
-            </div>
-            <p className="text-3xl font-bold text-gray-900">
-              {d?.latestWeight ? `${d.latestWeight}` : '—'}
-              <span className="text-lg font-semibold text-gray-400 ml-1">kg</span>
-            </p>
-            <Link href="/body-metrics" className="flex items-center gap-1 text-xs text-blue-500 font-medium mt-3 hover:text-blue-700">
-              체중 기록하기 <ArrowRight size={12} />
-            </Link>
-          </div>
+        {/* 캐릭터 */}
+        <div>
+          <PetCharacter
+            stage={d?.pet?.stage ?? 0}
+            exp={d?.pet?.exp ?? 0}
+            todayFoodDone={d?.pet?.todayFoodDone ?? false}
+            todayWorkoutDone={d?.pet?.todayWorkoutDone ?? false}
+            expProgress={d?.pet?.expProgress ?? 0}
+            nextThreshold={d?.pet?.nextThreshold ?? null}
+            foodLogDays={d?.pet?.foodLogDays ?? 0}
+            workoutLogDays={d?.pet?.workoutLogDays ?? 0}
+          />
         </div>
       </div>
 

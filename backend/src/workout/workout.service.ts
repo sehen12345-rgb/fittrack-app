@@ -36,6 +36,15 @@ export class WorkoutService {
       .getRawMany();
   }
 
+  async countLogDays(userId: string): Promise<number> {
+    const result = await this.logRepo
+      .createQueryBuilder('log')
+      .select("COUNT(DISTINCT strftime('%Y-%m-%d', log.workoutDate))", 'days')
+      .where('log.userId = :userId', { userId })
+      .getRawOne();
+    return Number(result.days) || 0;
+  }
+
   async getLogs(userId: string, date: string): Promise<WorkoutLog[]> {
     const start = dayjs(date).startOf('day').toDate();
     const end = dayjs(date).endOf('day').toDate();

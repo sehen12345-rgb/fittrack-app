@@ -16,15 +16,28 @@ export class AnalyticsService {
 
   async getDashboard(userId: string) {
     const today = dayjs().format('YYYY-MM-DD');
-    const [foodSummary, workoutLogs, latestMetrics, activeGoal] = await Promise.all([
+    const [foodSummary, workoutLogs, latestMetrics, activeGoal, foodLogDays, workoutLogDays] = await Promise.all([
       this.foodService.getDailySummary(userId, today),
       this.workoutService.getLogs(userId, today),
       this.metricsService.getLatest(userId),
       this.goalsService.getActiveGoal(userId).catch(() => null),
+      this.foodService.countLogDays(userId),
+      this.workoutService.countLogDays(userId),
     ]);
 
     const caloriesBurned = workoutLogs.reduce((sum, log) => sum + Number(log.totalCaloriesBurned), 0);
     const netCalories = foodSummary.totalCalories - caloriesBurned;
+
+    const petExp = foodLogDays + workoutLogDays * 2;
+    const petStage =
+      petExp >= 100 ? 5 :
+      petExp >= 50  ? 4 :
+      petExp >= 20  ? 3 :
+      petExp >= 7   ? 2 :
+      petExp >= 1   ? 1 : 0;
+    const expThresholds = [0, 1, 7, 20, 50, 100];
+    const nextThreshold = petStage < 5 ? expThresholds[petStage + 1] : null;
+    const prevThreshold = expThresholds[petStage];
 
     return {
       date: today,
@@ -46,6 +59,18 @@ export class AnalyticsService {
             proteinProgress: Math.min(100, Math.round((foodSummary.totalProtein / activeGoal.proteinTargetG) * 100)),
           }
         : null,
+      pet: {
+        exp: petExp,
+        stage: petStage,
+        foodLogDays,
+        workoutLogDays,
+        todayFoodDone: foodSummary.totalCalories > 0,
+        todayWorkoutDone: workoutLogs.length > 0,
+        nextThreshold,
+        expProgress: nextThreshold
+          ? Math.round(((petExp - prevThreshold) / (nextThreshold - prevThreshold)) * 100)
+          : 100,
+      },
     };
   }
 
