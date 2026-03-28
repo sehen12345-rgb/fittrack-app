@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 export const api = axios.create({
-  baseURL: '/api',
+  baseURL: `${process.env.NEXT_PUBLIC_API_URL || ''}/api`,
   headers: { 'Content-Type': 'application/json' },
 })
 
@@ -21,7 +21,7 @@ api.interceptors.response.use(
       original._retry = true
       try {
         const refreshToken = localStorage.getItem('refreshToken')
-        const { data } = await axios.post('/api/auth/refresh', { refreshToken })
+        const { data } = await axios.post(`${process.env.NEXT_PUBLIC_API_URL || ''}/api/auth/refresh`, { refreshToken })
         localStorage.setItem('accessToken', data.data.accessToken)
         original.headers.Authorization = `Bearer ${data.data.accessToken}`
         return api(original)
@@ -46,6 +46,16 @@ export const authApi = {
 export const userApi = {
   getMe: () => api.get('/users/me'),
   updateProfile: (data: any) => api.put('/users/me', data),
+  uploadAvatar: (file: File) => {
+    const form = new FormData()
+    form.append('file', file)
+    return api.post('/users/me/avatar', form, {
+      headers: { 'Content-Type': 'multipart/form-data' },
+    })
+  },
+  changePassword: (data: { currentPassword: string; newPassword: string }) =>
+    api.post('/users/me/change-password', data),
+  deleteAccount: () => api.delete('/users/me'),
 }
 
 export const goalApi = {

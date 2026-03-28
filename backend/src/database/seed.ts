@@ -2,25 +2,10 @@ import { DataSource } from 'typeorm';
 import { FoodItem } from '../food/food-item.entity';
 import { WorkoutTemplate } from '../workout/workout-template.entity';
 import { Achievement } from '../achievements/achievement.entity';
-import { FoodSource, WorkoutCategory } from '../common/enums';
+import { WorkoutCategory } from '../common/enums';
+import { FOOD_DATA } from './food-data';
 
-const foods: Partial<FoodItem>[] = [
-  { name: '닭가슴살 (삶은)', servingSizeG: 100, caloriesPerServing: 165, proteinG: 31, carbG: 0, fatG: 3.6, isVerified: true, source: FoodSource.SYSTEM },
-  { name: '고구마 (찐)', servingSizeG: 100, caloriesPerServing: 86, proteinG: 1.6, carbG: 20, fatG: 0.1, isVerified: true, source: FoodSource.SYSTEM },
-  { name: '흰쌀밥 (200g)', servingSizeG: 200, caloriesPerServing: 292, proteinG: 4.4, carbG: 64.2, fatG: 0.4, isVerified: true, source: FoodSource.SYSTEM },
-  { name: '계란 (1개)', servingSizeG: 60, caloriesPerServing: 91, proteinG: 7.9, carbG: 0.4, fatG: 6.3, isVerified: true, source: FoodSource.SYSTEM },
-  { name: '오트밀 (건조)', servingSizeG: 100, caloriesPerServing: 389, proteinG: 16.9, carbG: 66.3, fatG: 6.9, isVerified: true, source: FoodSource.SYSTEM },
-  { name: '아몬드', servingSizeG: 30, caloriesPerServing: 173, proteinG: 6.3, carbG: 6, fatG: 15, isVerified: true, source: FoodSource.SYSTEM },
-  { name: '바나나', servingSizeG: 120, caloriesPerServing: 107, proteinG: 1.3, carbG: 27.5, fatG: 0.4, isVerified: true, source: FoodSource.SYSTEM },
-  { name: '연두부', servingSizeG: 100, caloriesPerServing: 55, proteinG: 4.9, carbG: 1.5, fatG: 3, isVerified: true, source: FoodSource.SYSTEM },
-  { name: '참치캔 (물)', servingSizeG: 100, caloriesPerServing: 132, proteinG: 29.1, carbG: 0, fatG: 1.2, isVerified: true, source: FoodSource.SYSTEM },
-  { name: '그릭요거트 (무지방)', servingSizeG: 150, caloriesPerServing: 100, proteinG: 17, carbG: 6, fatG: 0.7, isVerified: true, source: FoodSource.SYSTEM },
-  { name: '현미밥 (200g)', servingSizeG: 200, caloriesPerServing: 274, proteinG: 5.6, carbG: 57.4, fatG: 2.2, isVerified: true, source: FoodSource.SYSTEM },
-  { name: '우유 (200ml)', servingSizeG: 200, caloriesPerServing: 130, proteinG: 6.6, carbG: 9.6, fatG: 7.6, isVerified: true, source: FoodSource.SYSTEM },
-  { name: '두유 (무당)', servingSizeG: 200, caloriesPerServing: 90, proteinG: 7, carbG: 8, fatG: 3, isVerified: true, source: FoodSource.SYSTEM },
-  { name: '삼겹살 (생)', servingSizeG: 100, caloriesPerServing: 331, proteinG: 15.2, carbG: 0, fatG: 29.3, isVerified: true, source: FoodSource.SYSTEM },
-  { name: '연어 (생)', servingSizeG: 100, caloriesPerServing: 208, proteinG: 20, carbG: 0, fatG: 13, isVerified: true, source: FoodSource.SYSTEM },
-];
+const foods: Partial<FoodItem>[] = FOOD_DATA;
 
 const workouts: Partial<WorkoutTemplate>[] = [
   { name: '벤치프레스', category: WorkoutCategory.STRENGTH, targetMuscleGroups: ['chest', 'triceps', 'shoulders'], equipmentRequired: ['barbell', 'bench'], isSystem: true },
@@ -58,9 +43,16 @@ export async function seed(dataSource: DataSource) {
   const achievementRepo = dataSource.getRepository(Achievement);
 
   const existingFoods = await foodRepo.count();
-  if (existingFoods === 0) {
-    await foodRepo.save(foods.map((f) => foodRepo.create(f)));
-    console.log('✅ Food items seeded');
+  if (existingFoods < FOOD_DATA.length) {
+    // 이름 기준으로 중복 방지하며 삽입
+    const existingNames = new Set(
+      (await foodRepo.find({ select: ['name'] })).map((f) => f.name),
+    );
+    const newFoods = foods.filter((f) => !existingNames.has(f.name!));
+    if (newFoods.length > 0) {
+      await foodRepo.save(newFoods.map((f) => foodRepo.create(f)));
+      console.log(`✅ Food items seeded (${newFoods.length}개 추가, 총 ${existingFoods + newFoods.length}개)`);
+    }
   }
 
   const existingWorkouts = await workoutRepo.count();

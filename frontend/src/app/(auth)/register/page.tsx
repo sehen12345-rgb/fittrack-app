@@ -43,7 +43,7 @@ export default function RegisterPage() {
           <div className="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center">
             <Activity size={22} className="text-white" />
           </div>
-          <span className="text-xl font-bold">FitTrack</span>
+          <span className="text-xl font-bold">HealthSnack</span>
         </div>
         <div>
           <h2 className="text-4xl font-bold leading-tight mb-4">
@@ -63,7 +63,7 @@ export default function RegisterPage() {
             ))}
           </div>
         </div>
-        <p className="text-blue-300 text-sm">© 2026 FitTrack. All rights reserved.</p>
+        <p className="text-blue-300 text-sm">© 2026 HealthSnack. All rights reserved.</p>
       </div>
 
       <div className="flex-1 flex items-center justify-center p-6 bg-white">
@@ -72,7 +72,7 @@ export default function RegisterPage() {
             <div className="w-9 h-9 bg-blue-600 rounded-xl flex items-center justify-center">
               <Activity size={18} className="text-white" />
             </div>
-            <span className="text-xl font-bold text-blue-600">FitTrack</span>
+            <span className="text-xl font-bold text-blue-600">HealthSnack</span>
           </div>
 
           <h1 className="text-2xl font-bold text-gray-900 mb-1">회원가입</h1>

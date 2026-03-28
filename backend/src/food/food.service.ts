@@ -28,9 +28,36 @@ export class FoodService {
   }
 
   async findByBarcode(barcode: string): Promise<FoodItem> {
-    const item = await this.foodItemRepo.findOne({ where: { barcode } });
-    if (!item) throw new NotFoundException('바코드에 해당하는 음식을 찾을 수 없습니다.');
-    return item;
+    const local = await this.foodItemRepo.findOne({ where: { barcode } });
+    if (local) return local;
+
+    // Open Food Facts API 조회
+    try {
+      const res = await fetch(`https://world.openfoodfacts.org/api/v2/product/${barcode}.json`);
+      if (!res.ok) throw new Error('not found');
+      const json: any = await res.json();
+      if (json.status !== 1 || !json.product) throw new Error('not found');
+
+      const p = json.product;
+      const nutriments = p.nutriments || {};
+      const servingSize = p.serving_size ? parseFloat(p.serving_size) || 100 : 100;
+
+      const item = this.foodItemRepo.create({
+        name: p.product_name || p.product_name_ko || barcode,
+        brand: p.brands || null,
+        barcode,
+        servingSizeG: servingSize,
+        caloriesPerServing: Math.round((nutriments['energy-kcal_serving'] || nutriments['energy-kcal_100g'] * servingSize / 100) || 0),
+        proteinG: parseFloat((nutriments['proteins_serving'] || nutriments['proteins_100g'] * servingSize / 100 || 0).toFixed(1)),
+        carbG: parseFloat((nutriments['carbohydrates_serving'] || nutriments['carbohydrates_100g'] * servingSize / 100 || 0).toFixed(1)),
+        fatG: parseFloat((nutriments['fat_serving'] || nutriments['fat_100g'] * servingSize / 100 || 0).toFixed(1)),
+        source: FoodSource.OPEN_FOOD_FACTS,
+        isVerified: false,
+      });
+      return this.foodItemRepo.save(item);
+    } catch {
+      throw new NotFoundException('바코드에 해당하는 음식을 찾을 수 없습니다.');
+    }
   }
 
   async findFoodById(id: string): Promise<FoodItem> {

@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import {
   LayoutDashboard, UtensilsCrossed, Dumbbell, TrendingUp,
-  Target, User, LogOut, Bell, Trophy, Menu, X, Activity,
+  Target, User, LogOut, Bell, Trophy, Menu, X, Activity, Settings,
 } from 'lucide-react'
 import { useAuthStore } from '@/store/auth.store'
 import { useRouter } from 'next/navigation'
@@ -22,6 +22,7 @@ const navItems = [
   { href: '/notifications', icon: Bell, label: '알림' },
   { href: '/achievements', icon: Trophy, label: '업적' },
   { href: '/profile', icon: User, label: '프로필' },
+  { href: '/settings', icon: Settings, label: '설정' },
 ]
 
 function NavContent({ pathname, onNavigate }: { pathname: string; onNavigate?: () => void }) {
@@ -49,7 +50,7 @@ function NavContent({ pathname, onNavigate }: { pathname: string; onNavigate?: (
             <Activity size={18} className="text-white" />
           </div>
           <div>
-            <p className="font-bold text-white text-base leading-none">FitTrack</p>
+            <p className="font-bold text-white text-base leading-none">HealthSnack</p>
             <p className="text-blue-300 text-xs mt-0.5">스마트 체형 관리</p>
           </div>
         </div>
@@ -130,7 +131,7 @@ export default function Sidebar() {
       <div className="md:hidden fixed top-0 left-0 right-0 z-30 bg-blue-700 flex items-center justify-between px-4 h-14 shadow-md">
         <div className="flex items-center gap-2">
           <Activity size={18} className="text-white" />
-          <span className="text-base font-bold text-white">FitTrack</span>
+          <span className="text-base font-bold text-white">HealthSnack</span>
         </div>
         <button
           onClick={() => setMobileOpen(true)}

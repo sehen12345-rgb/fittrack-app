@@ -6,7 +6,7 @@ import { Providers } from './providers'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'FitTrack - 다이어트 · 벌크업 · 유지어터',
+  title: 'HealthSnack - 다이어트 · 벌크업 · 유지어터',
   description: '목표에 맞는 스마트 체형 관리',
 }
 

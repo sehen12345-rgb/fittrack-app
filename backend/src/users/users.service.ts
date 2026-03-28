@@ -58,6 +58,30 @@ export class UsersService {
     return this.findById(userId);
   }
 
+  async updateAvatar(userId: string, imageUrl: string): Promise<User> {
+    await this.userRepo.update(userId, { profileImageUrl: imageUrl });
+    return this.findById(userId);
+  }
+
+  async changePassword(userId: string, currentPassword: string, newPassword: string): Promise<void> {
+    const user = await this.userRepo
+      .createQueryBuilder('user')
+      .addSelect('user.passwordHash')
+      .where('user.id = :userId AND user.isDeleted = false', { userId })
+      .getOne();
+    if (!user) throw new NotFoundException('User not found');
+
+    const bcrypt = await import('bcryptjs');
+    const isValid = await bcrypt.compare(currentPassword, user.passwordHash || '');
+    if (!isValid) {
+      const { UnauthorizedException } = await import('@nestjs/common');
+      throw new UnauthorizedException('현재 비밀번호가 올바르지 않습니다.');
+    }
+
+    const newHash = await bcrypt.hash(newPassword, 12);
+    await this.userRepo.update(userId, { passwordHash: newHash });
+  }
+
   async softDelete(userId: string): Promise<void> {
     await this.userRepo.update(userId, { isDeleted: true });
   }

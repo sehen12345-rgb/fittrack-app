@@ -9,6 +9,9 @@ import * as bcrypt from 'bcryptjs';
 import { UsersService } from '../users/users.service';
 import { RegisterDto, LoginDto } from './dto/auth.dto';
 import { AuthProvider } from '../common/enums';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+import { User } from '../users/user.entity';
 
 @Injectable()
 export class AuthService {
@@ -16,6 +19,8 @@ export class AuthService {
     private readonly usersService: UsersService,
     private readonly jwtService: JwtService,
     private readonly configService: ConfigService,
+    @InjectRepository(User)
+    private readonly userRepo: Repository<User>,
   ) {}
 
   async register(dto: RegisterDto) {
@@ -52,6 +57,45 @@ export class AuthService {
     } catch {
       throw new UnauthorizedException('유효하지 않은 리프레시 토큰입니다.');
     }
+  }
+
+  async findOrCreateOAuthUser(data: {
+    provider: string;
+    providerId: string;
+    email?: string;
+    nickname: string;
+    profileImageUrl?: string;
+  }) {
+    // 기존 소셜 계정 찾기
+    let user = await this.userRepo.findOne({
+      where: { provider: data.provider as AuthProvider, providerId: data.providerId },
+    });
+    if (user) return this.generateTokens(user.id, user.email);
+
+    // 이메일로 기존 계정 찾기 (로컬 계정과 연동)
+    if (data.email) {
+      user = await this.userRepo.findOne({ where: { email: data.email } });
+      if (user) {
+        user.provider = data.provider as AuthProvider;
+        user.providerId = data.providerId;
+        if (data.profileImageUrl && !user.profileImageUrl) {
+          user.profileImageUrl = data.profileImageUrl;
+        }
+        await this.userRepo.save(user);
+        return this.generateTokens(user.id, user.email);
+      }
+    }
+
+    // 신규 유저 생성
+    const email = data.email || `${data.provider.toLowerCase()}_${data.providerId}@healthsnack.local`;
+    const newUser = await this.usersService.create({
+      email,
+      nickname: data.nickname,
+      profileImageUrl: data.profileImageUrl,
+      provider: data.provider as AuthProvider,
+      providerId: data.providerId,
+    });
+    return this.generateTokens(newUser.id, newUser.email);
   }
 
   private generateTokens(userId: string, email: string) {
