@@ -49,6 +49,8 @@ export const authApi = {
     api.post('/auth/register', data),
   login: (data: { email: string; password: string }) =>
     api.post('/auth/login', data),
+  socialLogin: (data: { provider: string; email: string; nickname?: string }) =>
+    api.post('/auth/social', data),
 }
 
 export const userApi = {

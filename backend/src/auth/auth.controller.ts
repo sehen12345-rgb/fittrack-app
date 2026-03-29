@@ -5,7 +5,7 @@ import { AuthGuard } from '@nestjs/passport';
 import { ApiTags, ApiOperation } from '@nestjs/swagger';
 import { ConfigService } from '@nestjs/config';
 import { AuthService } from './auth.service';
-import { RegisterDto, LoginDto, RefreshTokenDto } from './dto/auth.dto';
+import { RegisterDto, LoginDto, RefreshTokenDto, SocialLoginDto } from './dto/auth.dto';
 
 @ApiTags('Auth')
 @Controller('auth')
@@ -33,6 +33,13 @@ export class AuthController {
   @ApiOperation({ summary: 'Access Token 갱신' })
   refresh(@Body() dto: RefreshTokenDto) {
     return this.authService.refreshToken(dto.refreshToken);
+  }
+
+  @Post('social')
+  @HttpCode(HttpStatus.OK)
+  @ApiOperation({ summary: '소셜 로그인 (Google/Kakao/Naver) — 이메일 기반' })
+  socialLogin(@Body() dto: SocialLoginDto) {
+    return this.authService.socialLogin(dto);
   }
 
   // ── Google OAuth ──────────────────────────────────────

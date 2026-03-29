@@ -1,4 +1,4 @@
-import { IsEmail, IsString, MinLength, MaxLength } from 'class-validator';
+import { IsEmail, IsString, MinLength, MaxLength, IsOptional } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
 
 export class RegisterDto {
@@ -33,4 +33,21 @@ export class RefreshTokenDto {
   @ApiProperty()
   @IsString()
   refreshToken: string;
+}
+
+export class SocialLoginDto {
+  @ApiProperty({ example: 'GOOGLE', enum: ['GOOGLE', 'KAKAO', 'NAVER'] })
+  @IsString()
+  provider: string;
+
+  @ApiProperty({ example: 'user@gmail.com' })
+  @IsEmail()
+  email: string;
+
+  @ApiProperty({ example: '헬스왕', required: false })
+  @IsOptional()
+  @IsString()
+  @MinLength(2)
+  @MaxLength(20)
+  nickname?: string;
 }

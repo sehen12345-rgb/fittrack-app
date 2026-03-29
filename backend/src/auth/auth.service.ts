@@ -2,6 +2,7 @@ import {
   Injectable,
   ConflictException,
   UnauthorizedException,
+  BadRequestException,
 } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { ConfigService } from '@nestjs/config';
@@ -47,6 +48,30 @@ export class AuthService {
     if (!isValid) throw new UnauthorizedException('이메일 또는 비밀번호가 틀렸습니다.');
 
     return this.generateTokens(user.id, user.email);
+  }
+
+  async socialLogin(dto: { provider: string; email: string; nickname?: string }) {
+    const validProviders = ['GOOGLE', 'KAKAO', 'NAVER'];
+    const provider = dto.provider?.toUpperCase();
+    if (!validProviders.includes(provider)) {
+      throw new BadRequestException('지원하지 않는 소셜 로그인 제공자입니다.');
+    }
+
+    // 이미 비밀번호 기반 계정이 있으면 충돌 방지
+    const existing = await this.usersService.findByEmail(dto.email);
+    if (existing && existing.provider === AuthProvider.LOCAL) {
+      throw new ConflictException(
+        '해당 이메일로 이미 일반 계정이 있습니다. 이메일/비밀번호로 로그인해주세요.',
+      );
+    }
+
+    const providerId = `${provider.toLowerCase()}_${dto.email.replace(/[^a-zA-Z0-9]/g, '_')}`;
+    return this.findOrCreateOAuthUser({
+      provider,
+      providerId,
+      email: dto.email,
+      nickname: dto.nickname || dto.email.split('@')[0],
+    });
   }
 
   async refreshToken(token: string) {
