@@ -10,9 +10,10 @@ export class KakaoStrategy extends PassportStrategy(Strategy, 'kakao') {
     private readonly authService: AuthService,
     config: ConfigService,
   ) {
+    const apiBase = config.get<string>('API_BASE_URL') || `http://localhost:${config.get('PORT', '4000')}`;
     super({
-      clientID: config.get('KAKAO_CLIENT_ID', 'DISABLED'),
-      callbackURL: config.get('KAKAO_CALLBACK_URL', 'http://localhost:4000/api/auth/kakao/callback'),
+      clientID: config.get<string>('KAKAO_CLIENT_ID') || 'DISABLED',
+      callbackURL: config.get<string>('KAKAO_CALLBACK_URL') || `${apiBase}/api/auth/kakao/callback`,
     });
   }
 

@@ -12,11 +12,17 @@ function OAuthCallbackContent() {
   const { setAuth } = useAuthStore()
 
   useEffect(() => {
+    const error = searchParams.get('error')
+    if (error) {
+      router.replace(`/login?error=${encodeURIComponent('소셜 로그인에 실패했습니다. 다시 시도해주세요.')}`)
+      return
+    }
+
     const accessToken = searchParams.get('accessToken')
     const refreshToken = searchParams.get('refreshToken')
 
     if (!accessToken || !refreshToken) {
-      router.replace('/login')
+      router.replace('/login?error=' + encodeURIComponent('소셜 로그인 처리 중 오류가 발생했습니다.'))
       return
     }
 
@@ -35,7 +41,7 @@ function OAuthCallbackContent() {
       .catch(() => {
         localStorage.removeItem('accessToken')
         localStorage.removeItem('refreshToken')
-        router.replace('/login')
+        router.replace('/login?error=' + encodeURIComponent('로그인 처리 중 오류가 발생했습니다.'))
       })
   }, [])
 

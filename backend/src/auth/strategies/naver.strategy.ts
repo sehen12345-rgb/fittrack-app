@@ -10,10 +10,11 @@ export class NaverStrategy extends PassportStrategy(Strategy, 'naver') {
     private readonly authService: AuthService,
     config: ConfigService,
   ) {
+    const apiBase = config.get<string>('API_BASE_URL') || `http://localhost:${config.get('PORT', '4000')}`;
     super({
-      clientID: config.get('NAVER_CLIENT_ID', 'DISABLED'),
-      clientSecret: config.get('NAVER_CLIENT_SECRET', 'DISABLED'),
-      callbackURL: config.get('NAVER_CALLBACK_URL', 'http://localhost:4000/api/auth/naver/callback'),
+      clientID: config.get<string>('NAVER_CLIENT_ID') || 'DISABLED',
+      clientSecret: config.get<string>('NAVER_CLIENT_SECRET') || 'DISABLED',
+      callbackURL: config.get<string>('NAVER_CALLBACK_URL') || `${apiBase}/api/auth/naver/callback`,
     });
   }
 

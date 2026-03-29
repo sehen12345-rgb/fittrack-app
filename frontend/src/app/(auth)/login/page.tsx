@@ -1,7 +1,7 @@
 'use client'
 
-import { useState } from 'react'
-import { useRouter } from 'next/navigation'
+import { useState, useEffect, Suspense } from 'react'
+import { useRouter, useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 import { useForm } from 'react-hook-form'
 import { authApi, userApi } from '@/lib/api'
@@ -13,12 +13,18 @@ interface LoginForm {
   password: string
 }
 
-export default function LoginPage() {
+function LoginPageContent() {
   const router = useRouter()
+  const searchParams = useSearchParams()
   const { setAuth } = useAuthStore()
   const [error, setError] = useState('')
   const [showPw, setShowPw] = useState(false)
   const { register, handleSubmit, formState: { isSubmitting } } = useForm<LoginForm>()
+
+  useEffect(() => {
+    const urlError = searchParams.get('error')
+    if (urlError) setError(decodeURIComponent(urlError))
+  }, [searchParams])
 
   const onSubmit = async (data: LoginForm) => {
     try {
@@ -173,5 +179,13 @@ export default function LoginPage() {
         </div>
       </div>
     </div>
+  )
+}
+
+export default function LoginPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-white" />}>
+      <LoginPageContent />
+    </Suspense>
   )
 }
