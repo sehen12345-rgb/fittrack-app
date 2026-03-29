@@ -18,21 +18,28 @@ api.interceptors.response.use(
   async (err) => {
     const original = err.config
     const isAuthEndpoint = original?.url?.includes('/auth/')
-    if (err.response?.status === 401 && !original._retry && !isAuthEndpoint) {
+    if (err.response?.status === 401 && !original?._retry && !isAuthEndpoint) {
       original._retry = true
       try {
         const refreshToken = localStorage.getItem('refreshToken')
+        if (!refreshToken) throw new Error('no refresh token')
         const { data } = await axios.post(`${process.env.NEXT_PUBLIC_API_URL || ''}/api/auth/refresh`, { refreshToken })
-        localStorage.setItem('accessToken', data.data.accessToken)
-        original.headers.Authorization = `Bearer ${data.data.accessToken}`
+        const newAccessToken = data?.data?.accessToken ?? data?.accessToken
+        if (!newAccessToken) throw new Error('no access token in response')
+        localStorage.setItem('accessToken', newAccessToken)
+        original.headers.Authorization = `Bearer ${newAccessToken}`
         return api(original)
       } catch {
         localStorage.removeItem('accessToken')
         localStorage.removeItem('refreshToken')
-        window.location.href = '/login'
+        if (typeof window !== 'undefined' && !window.location.pathname.includes('/login')) {
+          window.location.href = '/login'
+        }
       }
     }
-    return Promise.reject(err.response?.data ?? err)
+    const message = err.response?.data?.message
+    const errorMessage = Array.isArray(message) ? message[0] : message
+    return Promise.reject(errorMessage ? { ...err.response.data, message: errorMessage } : (err.response?.data ?? err))
   },
 )
 
