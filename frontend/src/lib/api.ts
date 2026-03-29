@@ -17,7 +17,8 @@ api.interceptors.response.use(
   (res) => res.data?.data ?? res.data,
   async (err) => {
     const original = err.config
-    if (err.response?.status === 401 && !original._retry) {
+    const isAuthEndpoint = original?.url?.includes('/auth/')
+    if (err.response?.status === 401 && !original._retry && !isAuthEndpoint) {
       original._retry = true
       try {
         const refreshToken = localStorage.getItem('refreshToken')
@@ -99,6 +100,7 @@ export const metricsApi = {
 
 export const analyticsApi = {
   getDashboard: () => api.get('/analytics/dashboard'),
+  getCharacter: () => api.get('/analytics/character'),
   getWeightTrend: (days?: number) =>
     api.get(`/analytics/weight-trend${days ? `?days=${days}` : ''}`),
   getCalorieTrend: (days?: number) =>

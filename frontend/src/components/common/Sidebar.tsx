@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import {
   LayoutDashboard, UtensilsCrossed, Dumbbell, TrendingUp,
-  Target, User, LogOut, Bell, Trophy, Menu, X, Activity, Settings,
+  Target, User, LogOut, Bell, Trophy, Menu, X, Activity, Settings, Smile,
 } from 'lucide-react'
 import { useAuthStore } from '@/store/auth.store'
 import { useRouter } from 'next/navigation'
@@ -17,6 +17,7 @@ const navItems = [
   { href: '/dashboard', icon: LayoutDashboard, label: '대시보드' },
   { href: '/food-log', icon: UtensilsCrossed, label: '식단 기록' },
   { href: '/workout-log', icon: Dumbbell, label: '운동 기록' },
+  { href: '/character', icon: Smile, label: '캐릭터' },
   { href: '/progress', icon: TrendingUp, label: '진행 현황' },
   { href: '/goals', icon: Target, label: '목표 설정' },
   { href: '/notifications', icon: Bell, label: '알림' },

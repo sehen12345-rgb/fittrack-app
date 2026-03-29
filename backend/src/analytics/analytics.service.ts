@@ -74,6 +74,71 @@ export class AnalyticsService {
     };
   }
 
+  async getCharacter(userId: string) {
+    const today = dayjs();
+
+    // 최근 7일 활동 조회
+    const recentActivity = await Promise.all(
+      Array.from({ length: 7 }, (_, i) => {
+        const date = today.subtract(6 - i, 'day').format('YYYY-MM-DD');
+        return Promise.all([
+          this.foodService.getDailySummary(userId, date),
+          this.workoutService.getLogs(userId, date),
+        ]).then(([food, workout]) => ({
+          date,
+          foodDone: food.totalCalories > 0,
+          workoutDone: workout.length > 0,
+        }));
+      }),
+    );
+
+    const [foodLogDays, workoutLogDays, currentStreak] = await Promise.all([
+      this.foodService.countLogDays(userId),
+      this.workoutService.countLogDays(userId),
+      this.foodService.calculateStreak(userId),
+    ]);
+
+    const todayActivity = recentActivity[6];
+
+    let mood: 'happy' | 'content' | 'tired' | 'sad';
+    if (todayActivity.foodDone && todayActivity.workoutDone) {
+      mood = 'happy';
+    } else if (todayActivity.foodDone || todayActivity.workoutDone) {
+      mood = 'content';
+    } else if (recentActivity[5].foodDone || recentActivity[5].workoutDone) {
+      mood = 'tired';
+    } else {
+      mood = 'sad';
+    }
+
+    const petExp = foodLogDays + workoutLogDays * 2;
+    const petStage =
+      petExp >= 100 ? 5 :
+      petExp >= 50  ? 4 :
+      petExp >= 20  ? 3 :
+      petExp >= 7   ? 2 :
+      petExp >= 1   ? 1 : 0;
+    const expThresholds = [0, 1, 7, 20, 50, 100];
+    const nextThreshold = petStage < 5 ? expThresholds[petStage + 1] : null;
+    const prevThreshold = expThresholds[petStage];
+
+    return {
+      exp: petExp,
+      stage: petStage,
+      foodLogDays,
+      workoutLogDays,
+      todayFoodDone: todayActivity.foodDone,
+      todayWorkoutDone: todayActivity.workoutDone,
+      nextThreshold,
+      expProgress: nextThreshold
+        ? Math.round(((petExp - prevThreshold) / (nextThreshold - prevThreshold)) * 100)
+        : 100,
+      mood,
+      recentActivity,
+      currentStreak,
+    };
+  }
+
   async getWeightTrend(userId: string, days = 30) {
     const from = dayjs().subtract(days, 'day').format('YYYY-MM-DD');
     const to = dayjs().format('YYYY-MM-DD');

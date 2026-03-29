@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import Link from 'next/link'
 
 interface PetProps {
   stage: number       // 0~5
@@ -82,9 +83,14 @@ export default function PetCharacter({
             {stage === 5 && <span className="ml-1">👑</span>}
           </h3>
         </div>
-        <div className="text-right">
-          <p className="text-xs text-gray-400">Lv.{stage}</p>
-          <p className="text-xs font-bold text-gray-600">EXP {exp}</p>
+        <div className="text-right flex flex-col items-end gap-1">
+          <div>
+            <p className="text-xs text-gray-400">Lv.{stage}</p>
+            <p className="text-xs font-bold text-gray-600">EXP {exp}</p>
+          </div>
+          <Link href="/character" className="text-xs text-violet-500 hover:text-violet-700 font-medium">
+            자세히 보기 →
+          </Link>
         </div>
       </div>
 

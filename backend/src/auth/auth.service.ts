@@ -42,6 +42,7 @@ export class AuthService {
     const user = await this.usersService.findByEmail(dto.email);
     if (!user) throw new UnauthorizedException('이메일 또는 비밀번호가 틀렸습니다.');
 
+    if (!user.passwordHash) throw new UnauthorizedException('이메일 또는 비밀번호가 틀렸습니다.');
     const isValid = await bcrypt.compare(dto.password, user.passwordHash);
     if (!isValid) throw new UnauthorizedException('이메일 또는 비밀번호가 틀렸습니다.');
 

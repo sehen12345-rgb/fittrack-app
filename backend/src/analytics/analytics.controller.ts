@@ -17,6 +17,12 @@ export class AnalyticsController {
     return this.analyticsService.getDashboard(userId);
   }
 
+  @Get('character')
+  @ApiOperation({ summary: '캐릭터 상세 정보' })
+  getCharacter(@CurrentUser('id') userId: string) {
+    return this.analyticsService.getCharacter(userId);
+  }
+
   @Get('weight-trend')
   @ApiOperation({ summary: '체중 변화 추이' })
   @ApiQuery({ name: 'days', required: false, type: Number })

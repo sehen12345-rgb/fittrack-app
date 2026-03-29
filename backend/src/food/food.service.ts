@@ -176,7 +176,7 @@ export class FoodService {
     if (streak >= 30) await this.achievementsService.unlock(userId, '30_day_streak');
   }
 
-  private async calculateStreak(userId: string): Promise<number> {
+  async calculateStreak(userId: string): Promise<number> {
     const logs = await this.foodLogRepo
       .createQueryBuilder('log')
       .select('DATE(log.loggedAt)', 'date')
