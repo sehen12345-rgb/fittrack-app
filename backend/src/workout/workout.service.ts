@@ -52,13 +52,20 @@ export class WorkoutService implements OnModuleInit {
     private readonly achievementsService: AchievementsService,
   ) {}
 
-  async onModuleInit() {
-    const count = await this.templateRepo.count();
-    if (count < 200) {
-      this.logger.log('wger API 동기화 시작...');
-      const { added } = await this.syncFromWger();
-      this.logger.log(`wger 동기화 완료: ${added}개 추가`);
-    }
+  onModuleInit() {
+    // 앱 시작을 블로킹하지 않고 백그라운드에서 동기화
+    setImmediate(async () => {
+      try {
+        const count = await this.templateRepo.count();
+        if (count < 200) {
+          this.logger.log('wger API 백그라운드 동기화 시작...');
+          const { added } = await this.syncFromWger();
+          this.logger.log(`wger 동기화 완료: ${added}개 추가 (총 ${count + added}개)`);
+        }
+      } catch (e) {
+        this.logger.warn('wger 동기화 실패 (무시됨):', e?.message);
+      }
+    });
   }
 
   // ───── wger API 헬퍼 ─────
