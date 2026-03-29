@@ -631,4 +631,282 @@ export const FOOD_DATA = [
   { name: '귀리 (삶은, 100g)', servingSizeG: 100, caloriesPerServing: 71, proteinG: 2.5, carbG: 12.0, fatG: 1.5, fiberG: 1.7, sodiumMg: 49, isVerified: true },
   { name: '아마란스 (삶은, 100g)', servingSizeG: 100, caloriesPerServing: 102, proteinG: 3.8, carbG: 18.7, fatG: 1.6, fiberG: 2.1, sodiumMg: 6, isVerified: true },
   { name: '컬러푸드 믹스 (100g)', servingSizeG: 100, caloriesPerServing: 130, proteinG: 4.5, carbG: 25.5, fatG: 1.5, fiberG: 5.5, sodiumMg: 20, isVerified: true },
+
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  // 편의점 음식
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  { name: '컵라면 신라면', servingSizeG: 120, caloriesPerServing: 505, proteinG: 10.5, carbG: 79.5, fatG: 16.8, fiberG: 1.5, sodiumMg: 1760, isVerified: true },
+  { name: '컵라면 진라면 순한맛', servingSizeG: 115, caloriesPerServing: 480, proteinG: 9.8, carbG: 77.0, fatG: 15.5, fiberG: 1.0, sodiumMg: 1580, isVerified: true },
+  { name: '컵라면 육개장', servingSizeG: 110, caloriesPerServing: 430, proteinG: 9.0, carbG: 70.5, fatG: 13.5, fiberG: 1.5, sodiumMg: 1820, isVerified: true },
+  { name: '컵라면 삼양라면', servingSizeG: 115, caloriesPerServing: 500, proteinG: 10.2, carbG: 77.8, fatG: 16.5, fiberG: 1.0, sodiumMg: 1670, isVerified: true },
+  { name: '컵라면 불닭볶음면', servingSizeG: 105, caloriesPerServing: 500, proteinG: 10.0, carbG: 72.5, fatG: 18.5, fiberG: 1.5, sodiumMg: 1380, isVerified: true },
+  { name: '컵라면 짜파게티', servingSizeG: 123, caloriesPerServing: 520, proteinG: 9.5, carbG: 80.5, fatG: 17.5, fiberG: 2.0, sodiumMg: 1250, isVerified: true },
+  { name: '컵밥 비빔밥', servingSizeG: 250, caloriesPerServing: 335, proteinG: 8.5, carbG: 60.5, fatG: 6.0, fiberG: 3.0, sodiumMg: 780, isVerified: true },
+  { name: '컵밥 닭갈비', servingSizeG: 260, caloriesPerServing: 360, proteinG: 12.5, carbG: 58.0, fatG: 8.5, fiberG: 2.5, sodiumMg: 820, isVerified: true },
+  { name: '편의점 도시락 (치킨마요)', servingSizeG: 300, caloriesPerServing: 490, proteinG: 16.5, carbG: 72.0, fatG: 15.0, fiberG: 2.5, sodiumMg: 850, isVerified: true },
+  { name: '편의점 샌드위치 (에그)', servingSizeG: 130, caloriesPerServing: 305, proteinG: 11.5, carbG: 38.5, fatG: 11.5, fiberG: 2.0, sodiumMg: 580, isVerified: true },
+  { name: '편의점 샌드위치 (BLT)', servingSizeG: 140, caloriesPerServing: 340, proteinG: 13.5, carbG: 40.0, fatG: 14.0, fiberG: 2.5, sodiumMg: 720, isVerified: true },
+  { name: '핫도그 (편의점)', servingSizeG: 90, caloriesPerServing: 255, proteinG: 8.5, carbG: 28.5, fatG: 12.0, fiberG: 1.0, sodiumMg: 480, isVerified: true },
+  { name: '떡꼬치 (1개)', servingSizeG: 80, caloriesPerServing: 155, proteinG: 2.5, carbG: 33.5, fatG: 1.5, fiberG: 0.8, sodiumMg: 380, isVerified: true },
+  { name: '모듬 소시지 (편의점)', servingSizeG: 100, caloriesPerServing: 280, proteinG: 11.5, carbG: 12.0, fatG: 20.5, fiberG: 0.5, sodiumMg: 750, isVerified: true },
+  { name: '편의점 찐빵 (1개)', servingSizeG: 70, caloriesPerServing: 175, proteinG: 4.5, carbG: 32.5, fatG: 3.0, fiberG: 1.5, sodiumMg: 150, isVerified: true },
+
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  // 패스트푸드 / 버거
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  { name: '빅맥 (맥도날드)', servingSizeG: 200, caloriesPerServing: 550, proteinG: 25.0, carbG: 45.0, fatG: 30.0, fiberG: 3.0, sodiumMg: 890, isVerified: true },
+  { name: '맥스파이시 상하이버거', servingSizeG: 175, caloriesPerServing: 480, proteinG: 22.0, carbG: 48.0, fatG: 22.5, fiberG: 2.0, sodiumMg: 810, isVerified: true },
+  { name: '맥플러리 오레오', servingSizeG: 170, caloriesPerServing: 340, proteinG: 7.5, carbG: 57.5, fatG: 10.0, fiberG: 0.5, sodiumMg: 180, isVerified: true },
+  { name: '맥너겟 6조각', servingSizeG: 96, caloriesPerServing: 250, proteinG: 15.0, carbG: 15.5, fatG: 14.5, fiberG: 0.5, sodiumMg: 450, isVerified: true },
+  { name: '불고기버거 (롯데리아)', servingSizeG: 145, caloriesPerServing: 385, proteinG: 16.5, carbG: 47.0, fatG: 14.5, fiberG: 2.0, sodiumMg: 680, isVerified: true },
+  { name: '새우버거 (롯데리아)', servingSizeG: 160, caloriesPerServing: 420, proteinG: 14.5, carbG: 52.5, fatG: 17.0, fiberG: 2.5, sodiumMg: 730, isVerified: true },
+  { name: '와퍼 (버거킹)', servingSizeG: 270, caloriesPerServing: 630, proteinG: 27.0, carbG: 52.5, fatG: 35.0, fiberG: 3.5, sodiumMg: 960, isVerified: true },
+  { name: '치킨버거 (버거킹)', servingSizeG: 180, caloriesPerServing: 490, proteinG: 22.0, carbG: 50.5, fatG: 22.0, fiberG: 2.5, sodiumMg: 850, isVerified: true },
+  { name: '징거버거 (KFC)', servingSizeG: 195, caloriesPerServing: 550, proteinG: 27.5, carbG: 55.5, fatG: 24.5, fiberG: 3.0, sodiumMg: 1050, isVerified: true },
+  { name: 'KFC 오리지널 치킨 (1조각)', servingSizeG: 95, caloriesPerServing: 260, proteinG: 19.5, carbG: 8.5, fatG: 16.5, fiberG: 0.5, sodiumMg: 520, isVerified: true },
+  { name: '감자튀김 (중, 맥도날드)', servingSizeG: 117, caloriesPerServing: 370, proteinG: 4.5, carbG: 48.5, fatG: 17.5, fiberG: 4.0, sodiumMg: 360, isVerified: true },
+  { name: '어니언링 (버거킹)', servingSizeG: 90, caloriesPerServing: 290, proteinG: 4.0, carbG: 40.5, fatG: 12.5, fiberG: 2.0, sodiumMg: 480, isVerified: true },
+  { name: '핫윙 (KFC, 1개)', servingSizeG: 55, caloriesPerServing: 140, proteinG: 8.5, carbG: 8.0, fatG: 8.0, fiberG: 0.3, sodiumMg: 310, isVerified: true },
+
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  // 치킨 (프랜차이즈)
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  { name: '프라이드치킨 (한 마리, 800g)', servingSizeG: 800, caloriesPerServing: 1960, proteinG: 132.0, carbG: 96.0, fatG: 108.0, fiberG: 2.5, sodiumMg: 2400, isVerified: true },
+  { name: '양념치킨 (한 마리, 850g)', servingSizeG: 850, caloriesPerServing: 2125, proteinG: 128.0, carbG: 136.5, fatG: 102.0, fiberG: 4.5, sodiumMg: 3200, isVerified: true },
+  { name: '프라이드치킨 (1조각)', servingSizeG: 100, caloriesPerServing: 245, proteinG: 16.5, carbG: 12.0, fatG: 13.5, fiberG: 0.3, sodiumMg: 300, isVerified: true },
+  { name: '양념치킨 (1조각)', servingSizeG: 106, caloriesPerServing: 250, proteinG: 15.1, carbG: 16.1, fatG: 12.0, fiberG: 0.5, sodiumMg: 376, isVerified: true },
+  { name: '간장치킨 (1조각)', servingSizeG: 100, caloriesPerServing: 235, proteinG: 16.0, carbG: 13.0, fatG: 12.5, fiberG: 0.3, sodiumMg: 420, isVerified: true },
+  { name: '순살치킨 (100g)', servingSizeG: 100, caloriesPerServing: 240, proteinG: 17.5, carbG: 11.5, fatG: 13.0, fiberG: 0.5, sodiumMg: 480, isVerified: true },
+  { name: '닭강정 (100g)', servingSizeG: 100, caloriesPerServing: 275, proteinG: 14.5, carbG: 22.5, fatG: 13.5, fiberG: 1.0, sodiumMg: 520, isVerified: true },
+  { name: '파닭 (100g)', servingSizeG: 100, caloriesPerServing: 230, proteinG: 16.0, carbG: 11.0, fatG: 12.5, fiberG: 1.5, sodiumMg: 380, isVerified: true },
+
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  // 피자
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  { name: '피자 (치즈, 1조각 100g)', servingSizeG: 100, caloriesPerServing: 272, proteinG: 11.5, carbG: 33.5, fatG: 10.5, fiberG: 1.5, sodiumMg: 580, isVerified: true },
+  { name: '피자 (페퍼로니, 1조각)', servingSizeG: 105, caloriesPerServing: 298, proteinG: 12.0, carbG: 33.0, fatG: 13.5, fiberG: 1.5, sodiumMg: 720, isVerified: true },
+  { name: '포테이토피자 (1조각)', servingSizeG: 120, caloriesPerServing: 305, proteinG: 10.5, carbG: 42.5, fatG: 10.5, fiberG: 2.0, sodiumMg: 560, isVerified: true },
+  { name: '고구마피자 (1조각)', servingSizeG: 115, caloriesPerServing: 295, proteinG: 9.5, carbG: 44.5, fatG: 9.5, fiberG: 2.5, sodiumMg: 520, isVerified: true },
+  { name: '불고기피자 (1조각)', servingSizeG: 115, caloriesPerServing: 285, proteinG: 13.5, carbG: 37.5, fatG: 9.5, fiberG: 2.0, sodiumMg: 620, isVerified: true },
+
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  // 카페 음료
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  { name: '아메리카노 (355ml)', servingSizeG: 355, caloriesPerServing: 10, proteinG: 0.5, carbG: 1.5, fatG: 0, fiberG: 0, sodiumMg: 10, isVerified: true },
+  { name: '카페라떼 (355ml)', servingSizeG: 355, caloriesPerServing: 150, proteinG: 8.5, carbG: 15.0, fatG: 5.5, fiberG: 0, sodiumMg: 105, isVerified: true },
+  { name: '카푸치노 (355ml)', servingSizeG: 355, caloriesPerServing: 130, proteinG: 7.5, carbG: 13.0, fatG: 5.0, fiberG: 0, sodiumMg: 95, isVerified: true },
+  { name: '카라멜마키아토 (355ml)', servingSizeG: 355, caloriesPerServing: 240, proteinG: 8.0, carbG: 37.5, fatG: 6.5, fiberG: 0, sodiumMg: 135, isVerified: true },
+  { name: '바닐라라떼 (355ml)', servingSizeG: 355, caloriesPerServing: 280, proteinG: 8.5, carbG: 43.5, fatG: 8.5, fiberG: 0, sodiumMg: 120, isVerified: true },
+  { name: '모카 (355ml)', servingSizeG: 355, caloriesPerServing: 290, proteinG: 8.5, carbG: 46.0, fatG: 9.0, fiberG: 0.5, sodiumMg: 125, isVerified: true },
+  { name: '그린티라떼 (355ml)', servingSizeG: 355, caloriesPerServing: 260, proteinG: 9.0, carbG: 40.5, fatG: 7.5, fiberG: 0.5, sodiumMg: 110, isVerified: true },
+  { name: '딸기라떼 (355ml)', servingSizeG: 355, caloriesPerServing: 320, proteinG: 8.0, carbG: 54.5, fatG: 8.0, fiberG: 1.0, sodiumMg: 105, isVerified: true },
+  { name: '프라푸치노 (스타벅스, 355ml)', servingSizeG: 355, caloriesPerServing: 370, proteinG: 6.5, carbG: 62.5, fatG: 11.5, fiberG: 0.5, sodiumMg: 230, isVerified: true },
+  { name: '아이스크림라떼', servingSizeG: 400, caloriesPerServing: 330, proteinG: 7.5, carbG: 52.5, fatG: 9.5, fiberG: 0, sodiumMg: 120, isVerified: true },
+  { name: '에스프레소 (1샷, 30ml)', servingSizeG: 30, caloriesPerServing: 5, proteinG: 0.3, carbG: 0.5, fatG: 0, fiberG: 0, sodiumMg: 5, isVerified: true },
+  { name: '아이스티 (레몬, 355ml)', servingSizeG: 355, caloriesPerServing: 85, proteinG: 0, carbG: 22.0, fatG: 0, fiberG: 0, sodiumMg: 15, isVerified: true },
+
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  // 빵 / 베이커리
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  { name: '식빵 (1장, 30g)', servingSizeG: 30, caloriesPerServing: 79, proteinG: 2.5, carbG: 14.5, fatG: 1.0, fiberG: 0.6, sodiumMg: 135, isVerified: true },
+  { name: '통밀식빵 (1장, 30g)', servingSizeG: 30, caloriesPerServing: 72, proteinG: 2.8, carbG: 13.0, fatG: 1.0, fiberG: 1.5, sodiumMg: 120, isVerified: true },
+  { name: '크루아상 (1개, 60g)', servingSizeG: 60, caloriesPerServing: 240, proteinG: 4.5, carbG: 26.5, fatG: 13.0, fiberG: 1.0, sodiumMg: 290, isVerified: true },
+  { name: '소금빵 (1개, 85g)', servingSizeG: 85, caloriesPerServing: 310, proteinG: 7.5, carbG: 38.5, fatG: 14.0, fiberG: 1.5, sodiumMg: 480, isVerified: true },
+  { name: '단팥빵 (1개, 90g)', servingSizeG: 90, caloriesPerServing: 250, proteinG: 5.5, carbG: 48.5, fatG: 4.0, fiberG: 1.5, sodiumMg: 230, isVerified: true },
+  { name: '크림빵 (1개, 80g)', servingSizeG: 80, caloriesPerServing: 238, proteinG: 5.0, carbG: 36.5, fatG: 8.5, fiberG: 0.8, sodiumMg: 195, isVerified: true },
+  { name: '소시지빵 (1개, 95g)', servingSizeG: 95, caloriesPerServing: 275, proteinG: 8.5, carbG: 36.5, fatG: 10.0, fiberG: 1.0, sodiumMg: 380, isVerified: true },
+  { name: '치아바타 (100g)', servingSizeG: 100, caloriesPerServing: 255, proteinG: 8.0, carbG: 49.5, fatG: 2.5, fiberG: 2.0, sodiumMg: 490, isVerified: true },
+  { name: '바게트 (100g)', servingSizeG: 100, caloriesPerServing: 274, proteinG: 9.5, carbG: 53.5, fatG: 1.5, fiberG: 2.5, sodiumMg: 580, isVerified: true },
+  { name: '베이글 (1개, 100g)', servingSizeG: 100, caloriesPerServing: 270, proteinG: 10.0, carbG: 53.0, fatG: 2.0, fiberG: 2.0, sodiumMg: 430, isVerified: true },
+  { name: '머핀 (블루베리, 1개 110g)', servingSizeG: 110, caloriesPerServing: 340, proteinG: 5.5, carbG: 57.5, fatG: 10.5, fiberG: 1.5, sodiumMg: 320, isVerified: true },
+  { name: '도넛 (글레이즈드, 1개 60g)', servingSizeG: 60, caloriesPerServing: 240, proteinG: 3.5, carbG: 33.5, fatG: 11.0, fiberG: 0.5, sodiumMg: 185, isVerified: true },
+  { name: '치즈케이크 (1조각 100g)', servingSizeG: 100, caloriesPerServing: 321, proteinG: 5.5, carbG: 26.5, fatG: 21.5, fiberG: 0.3, sodiumMg: 250, isVerified: true },
+  { name: '파운드케이크 (1조각 80g)', servingSizeG: 80, caloriesPerServing: 320, proteinG: 4.5, carbG: 42.0, fatG: 15.5, fiberG: 0.5, sodiumMg: 175, isVerified: true },
+  { name: '스콘 (1개 80g)', servingSizeG: 80, caloriesPerServing: 295, proteinG: 5.5, carbG: 43.5, fatG: 11.0, fiberG: 1.5, sodiumMg: 310, isVerified: true },
+  { name: '와플 (1개 75g)', servingSizeG: 75, caloriesPerServing: 218, proteinG: 5.5, carbG: 30.5, fatG: 8.0, fiberG: 0.8, sodiumMg: 230, isVerified: true },
+  { name: '팬케이크 (1장 60g)', servingSizeG: 60, caloriesPerServing: 170, proteinG: 4.0, carbG: 27.5, fatG: 5.0, fiberG: 0.8, sodiumMg: 260, isVerified: true },
+
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  // 과자 / 스낵
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  { name: '새우깡 (1봉 90g)', servingSizeG: 90, caloriesPerServing: 447, proteinG: 7.2, carbG: 61.2, fatG: 19.5, fiberG: 1.5, sodiumMg: 594, isVerified: true },
+  { name: '포카칩 오리지널 (1봉 66g)', servingSizeG: 66, caloriesPerServing: 358, proteinG: 3.8, carbG: 43.6, fatG: 19.3, fiberG: 1.2, sodiumMg: 210, isVerified: true },
+  { name: '오레오 (3개 34g)', servingSizeG: 34, caloriesPerServing: 160, proteinG: 1.5, carbG: 25.0, fatG: 7.0, fiberG: 0.8, sodiumMg: 135, isVerified: true },
+  { name: '초코파이 (1개 39g)', servingSizeG: 39, caloriesPerServing: 162, proteinG: 1.8, carbG: 26.5, fatG: 5.8, fiberG: 0.5, sodiumMg: 95, isVerified: true },
+  { name: '빼빼로 (1갑 54g)', servingSizeG: 54, caloriesPerServing: 270, proteinG: 3.5, carbG: 40.5, fatG: 10.5, fiberG: 1.0, sodiumMg: 105, isVerified: true },
+  { name: '칸쵸 (1봉 42g)', servingSizeG: 42, caloriesPerServing: 205, proteinG: 3.0, carbG: 28.5, fatG: 9.5, fiberG: 0.5, sodiumMg: 85, isVerified: true },
+  { name: '홈런볼 (1봉 46g)', servingSizeG: 46, caloriesPerServing: 215, proteinG: 2.5, carbG: 30.5, fatG: 9.5, fiberG: 0.5, sodiumMg: 90, isVerified: true },
+  { name: '꼬깔콘 (1봉 72g)', servingSizeG: 72, caloriesPerServing: 368, proteinG: 4.3, carbG: 52.0, fatG: 16.2, fiberG: 1.0, sodiumMg: 460, isVerified: true },
+  { name: '허니버터칩 (1봉 60g)', servingSizeG: 60, caloriesPerServing: 316, proteinG: 3.0, carbG: 39.5, fatG: 16.5, fiberG: 0.8, sodiumMg: 175, isVerified: true },
+  { name: '프링글스 오리지널 (1캔 110g)', servingSizeG: 110, caloriesPerServing: 565, proteinG: 5.5, carbG: 66.0, fatG: 31.5, fiberG: 2.5, sodiumMg: 480, isVerified: true },
+  { name: '나초 (100g)', servingSizeG: 100, caloriesPerServing: 480, proteinG: 7.5, carbG: 68.5, fatG: 20.5, fiberG: 4.5, sodiumMg: 580, isVerified: true },
+  { name: '땅콩 (볶은, 30g)', servingSizeG: 30, caloriesPerServing: 176, proteinG: 7.5, carbG: 5.5, fatG: 14.5, fiberG: 2.5, sodiumMg: 55, isVerified: true },
+  { name: '아몬드 (30g)', servingSizeG: 30, caloriesPerServing: 173, proteinG: 6.5, carbG: 6.0, fatG: 15.0, fiberG: 3.5, sodiumMg: 0, isVerified: true },
+  { name: '캐슈넛 (30g)', servingSizeG: 30, caloriesPerServing: 163, proteinG: 4.5, carbG: 9.5, fatG: 13.0, fiberG: 1.0, sodiumMg: 3, isVerified: true },
+  { name: '호두 (30g)', servingSizeG: 30, caloriesPerServing: 196, proteinG: 4.5, carbG: 4.0, fatG: 19.5, fiberG: 2.0, sodiumMg: 1, isVerified: true },
+  { name: '크래커 (리츠, 5개 16g)', servingSizeG: 16, caloriesPerServing: 79, proteinG: 1.0, carbG: 10.5, fatG: 3.5, fiberG: 0.3, sodiumMg: 120, isVerified: true },
+
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  // 음료 / 주스
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  { name: '코카콜라 (350ml 캔)', servingSizeG: 350, caloriesPerServing: 148, proteinG: 0, carbG: 39.5, fatG: 0, fiberG: 0, sodiumMg: 35, isVerified: true },
+  { name: '사이다 (350ml 캔)', servingSizeG: 350, caloriesPerServing: 143, proteinG: 0, carbG: 38.5, fatG: 0, fiberG: 0, sodiumMg: 38, isVerified: true },
+  { name: '제로콜라 (350ml 캔)', servingSizeG: 350, caloriesPerServing: 1, proteinG: 0, carbG: 0, fatG: 0, fiberG: 0, sodiumMg: 25, isVerified: true },
+  { name: '오렌지주스 (200ml)', servingSizeG: 200, caloriesPerServing: 88, proteinG: 1.5, carbG: 20.5, fatG: 0.2, fiberG: 0.5, sodiumMg: 4, isVerified: true },
+  { name: '사과주스 (200ml)', servingSizeG: 200, caloriesPerServing: 96, proteinG: 0.5, carbG: 23.5, fatG: 0.2, fiberG: 0.5, sodiumMg: 8, isVerified: true },
+  { name: '포도주스 (200ml)', servingSizeG: 200, caloriesPerServing: 128, proteinG: 0.8, carbG: 31.5, fatG: 0.2, fiberG: 0.5, sodiumMg: 10, isVerified: true },
+  { name: '토마토주스 (200ml)', servingSizeG: 200, caloriesPerServing: 46, proteinG: 1.8, carbG: 9.5, fatG: 0.2, fiberG: 1.0, sodiumMg: 250, isVerified: true },
+  { name: '스포츠음료 포카리스웨트 (500ml)', servingSizeG: 500, caloriesPerServing: 125, proteinG: 0, carbG: 31.5, fatG: 0, fiberG: 0, sodiumMg: 250, isVerified: true },
+  { name: '이온음료 게토레이 (600ml)', servingSizeG: 600, caloriesPerServing: 132, proteinG: 0, carbG: 33.0, fatG: 0, fiberG: 0, sodiumMg: 270, isVerified: true },
+  { name: '비타민음료 비타500 (100ml)', servingSizeG: 100, caloriesPerServing: 38, proteinG: 0, carbG: 9.5, fatG: 0, fiberG: 0, sodiumMg: 12, isVerified: true },
+  { name: '에너지드링크 레드불 (250ml)', servingSizeG: 250, caloriesPerServing: 113, proteinG: 1.0, carbG: 27.5, fatG: 0, fiberG: 0, sodiumMg: 100, isVerified: true },
+  { name: '생수 (500ml)', servingSizeG: 500, caloriesPerServing: 0, proteinG: 0, carbG: 0, fatG: 0, fiberG: 0, sodiumMg: 5, isVerified: true },
+  { name: '두유 (200ml)', servingSizeG: 200, caloriesPerServing: 98, proteinG: 6.5, carbG: 10.5, fatG: 3.5, fiberG: 0.5, sodiumMg: 100, isVerified: true },
+  { name: '초코우유 (200ml)', servingSizeG: 200, caloriesPerServing: 142, proteinG: 5.5, carbG: 23.5, fatG: 3.5, fiberG: 0.5, sodiumMg: 105, isVerified: true },
+  { name: '오트밀크 (200ml)', servingSizeG: 200, caloriesPerServing: 90, proteinG: 2.5, carbG: 16.0, fatG: 2.0, fiberG: 1.5, sodiumMg: 90, isVerified: true },
+  { name: '아몬드밀크 (200ml)', servingSizeG: 200, caloriesPerServing: 60, proteinG: 1.5, carbG: 8.5, fatG: 2.5, fiberG: 1.0, sodiumMg: 140, isVerified: true },
+  { name: '막걸리 (1잔 200ml)', servingSizeG: 200, caloriesPerServing: 92, proteinG: 1.5, carbG: 13.5, fatG: 0, fiberG: 0, sodiumMg: 15, isVerified: true },
+  { name: '맥주 (1캔 500ml)', servingSizeG: 500, caloriesPerServing: 215, proteinG: 1.5, carbG: 16.5, fatG: 0, fiberG: 0, sodiumMg: 25, isVerified: true },
+  { name: '소주 (1잔 50ml)', servingSizeG: 50, caloriesPerServing: 72, proteinG: 0, carbG: 0.5, fatG: 0, fiberG: 0, sodiumMg: 0, isVerified: true },
+
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  // 건강식 / 단백질 식품
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  { name: '닭가슴살 (훈제, 100g)', servingSizeG: 100, caloriesPerServing: 108, proteinG: 22.5, carbG: 1.5, fatG: 1.5, fiberG: 0, sodiumMg: 480, isVerified: true },
+  { name: '닭가슴살 (스팀, 100g)', servingSizeG: 100, caloriesPerServing: 95, proteinG: 21.0, carbG: 0, fatG: 1.0, fiberG: 0, sodiumMg: 65, isVerified: true },
+  { name: '닭가슴살 소시지 (1개 50g)', servingSizeG: 50, caloriesPerServing: 68, proteinG: 9.5, carbG: 3.5, fatG: 1.5, fiberG: 0.3, sodiumMg: 240, isVerified: true },
+  { name: '고단백 두부 (100g)', servingSizeG: 100, caloriesPerServing: 80, proteinG: 10.5, carbG: 1.5, fatG: 3.5, fiberG: 0.5, sodiumMg: 5, isVerified: true },
+  { name: '그릭요거트 플레인 (100g)', servingSizeG: 100, caloriesPerServing: 97, proteinG: 9.0, carbG: 6.5, fatG: 3.5, fiberG: 0, sodiumMg: 50, isVerified: true },
+  { name: '코티지치즈 (100g)', servingSizeG: 100, caloriesPerServing: 98, proteinG: 11.5, carbG: 3.5, fatG: 4.0, fiberG: 0, sodiumMg: 360, isVerified: true },
+  { name: '참치캔 (물에 담긴, 100g)', servingSizeG: 100, caloriesPerServing: 100, proteinG: 22.0, carbG: 0, fatG: 1.5, fiberG: 0, sodiumMg: 280, isVerified: true },
+  { name: '연어 (구이, 100g)', servingSizeG: 100, caloriesPerServing: 208, proteinG: 20.5, carbG: 0, fatG: 13.5, fiberG: 0, sodiumMg: 65, isVerified: true },
+  { name: '달걀 흰자 (1개 33g)', servingSizeG: 33, caloriesPerServing: 17, proteinG: 3.6, carbG: 0.2, fatG: 0.1, fiberG: 0, sodiumMg: 55, isVerified: true },
+  { name: '프로틴바 (초코, 1개 60g)', servingSizeG: 60, caloriesPerServing: 220, proteinG: 20.0, carbG: 22.5, fatG: 6.5, fiberG: 3.5, sodiumMg: 150, isVerified: true },
+  { name: '웨이프로틴 (1스쿱 30g)', servingSizeG: 30, caloriesPerServing: 120, proteinG: 24.0, carbG: 3.0, fatG: 1.5, fiberG: 0, sodiumMg: 130, isVerified: true },
+  { name: '두부 (순두부, 100g)', servingSizeG: 100, caloriesPerServing: 50, proteinG: 5.0, carbG: 1.5, fatG: 2.5, fiberG: 0.3, sodiumMg: 8, isVerified: true },
+  { name: '완두콩 (삶은, 100g)', servingSizeG: 100, caloriesPerServing: 84, proteinG: 5.5, carbG: 14.5, fatG: 0.5, fiberG: 4.5, sodiumMg: 4, isVerified: true },
+  { name: '렌틸콩 (삶은, 100g)', servingSizeG: 100, caloriesPerServing: 116, proteinG: 9.0, carbG: 20.0, fatG: 0.5, fiberG: 8.0, sodiumMg: 2, isVerified: true },
+  { name: '검은콩 (삶은, 100g)', servingSizeG: 100, caloriesPerServing: 132, proteinG: 9.0, carbG: 24.0, fatG: 0.5, fiberG: 8.5, sodiumMg: 1, isVerified: true },
+  { name: '오트밀 (건조, 40g)', servingSizeG: 40, caloriesPerServing: 152, proteinG: 5.5, carbG: 27.5, fatG: 2.5, fiberG: 4.0, sodiumMg: 3, isVerified: true },
+  { name: '현미 (건조, 100g)', servingSizeG: 100, caloriesPerServing: 362, proteinG: 7.5, carbG: 76.0, fatG: 2.5, fiberG: 3.5, sodiumMg: 4, isVerified: true },
+  { name: '퀴노아 (삶은, 100g)', servingSizeG: 100, caloriesPerServing: 120, proteinG: 4.5, carbG: 21.5, fatG: 1.9, fiberG: 2.8, sodiumMg: 7, isVerified: true },
+
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  // 한식 추가 (고기류)
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  { name: '삼겹살 (구이, 100g)', servingSizeG: 100, caloriesPerServing: 331, proteinG: 17.0, carbG: 0, fatG: 29.5, fiberG: 0, sodiumMg: 65, isVerified: true },
+  { name: '목살 (구이, 100g)', servingSizeG: 100, caloriesPerServing: 290, proteinG: 18.5, carbG: 0, fatG: 24.0, fiberG: 0, sodiumMg: 60, isVerified: true },
+  { name: '항정살 (100g)', servingSizeG: 100, caloriesPerServing: 245, proteinG: 19.5, carbG: 0, fatG: 18.5, fiberG: 0, sodiumMg: 55, isVerified: true },
+  { name: '대패삼겹살 (100g)', servingSizeG: 100, caloriesPerServing: 340, proteinG: 15.5, carbG: 0, fatG: 30.5, fiberG: 0, sodiumMg: 60, isVerified: true },
+  { name: '소갈비 (구이, 100g)', servingSizeG: 100, caloriesPerServing: 285, proteinG: 18.5, carbG: 0, fatG: 23.5, fiberG: 0, sodiumMg: 70, isVerified: true },
+  { name: '불고기 (소, 100g)', servingSizeG: 100, caloriesPerServing: 205, proteinG: 19.5, carbG: 6.5, fatG: 11.5, fiberG: 0.3, sodiumMg: 520, isVerified: true },
+  { name: '양념갈비 (소, 100g)', servingSizeG: 100, caloriesPerServing: 225, proteinG: 17.5, carbG: 9.5, fatG: 13.5, fiberG: 0.5, sodiumMg: 580, isVerified: true },
+  { name: '닭볶음탕 (200g)', servingSizeG: 200, caloriesPerServing: 380, proteinG: 28.5, carbG: 22.5, fatG: 17.5, fiberG: 2.5, sodiumMg: 1050, isVerified: true },
+  { name: '제육볶음 (100g)', servingSizeG: 100, caloriesPerServing: 230, proteinG: 15.5, carbG: 9.5, fatG: 14.5, fiberG: 1.5, sodiumMg: 650, isVerified: true },
+  { name: '닭꼬치 (1개 80g)', servingSizeG: 80, caloriesPerServing: 165, proteinG: 16.5, carbG: 5.5, fatG: 8.5, fiberG: 0.5, sodiumMg: 480, isVerified: true },
+  { name: '소시지 (프랑크, 1개 60g)', servingSizeG: 60, caloriesPerServing: 185, proteinG: 7.0, carbG: 3.0, fatG: 16.0, fiberG: 0, sodiumMg: 480, isVerified: true },
+  { name: '햄 (1장 30g)', servingSizeG: 30, caloriesPerServing: 75, proteinG: 4.5, carbG: 1.5, fatG: 5.5, fiberG: 0, sodiumMg: 320, isVerified: true },
+  { name: '스팸 (1캔 340g)', servingSizeG: 340, caloriesPerServing: 1054, proteinG: 43.0, carbG: 9.0, fatG: 95.0, fiberG: 0, sodiumMg: 4420, isVerified: true },
+  { name: '스팸 (1회분 30g)', servingSizeG: 30, caloriesPerServing: 93, proteinG: 3.8, carbG: 0.8, fatG: 8.4, fiberG: 0, sodiumMg: 390, isVerified: true },
+  { name: '베이컨 (2조각 30g)', servingSizeG: 30, caloriesPerServing: 108, proteinG: 7.5, carbG: 0.5, fatG: 8.5, fiberG: 0, sodiumMg: 380, isVerified: true },
+
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  // 해산물 추가
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  { name: '고등어 (구이, 100g)', servingSizeG: 100, caloriesPerServing: 196, proteinG: 19.5, carbG: 0, fatG: 13.0, fiberG: 0, sodiumMg: 115, isVerified: true },
+  { name: '갈치 (구이, 100g)', servingSizeG: 100, caloriesPerServing: 176, proteinG: 18.5, carbG: 0, fatG: 11.0, fiberG: 0, sodiumMg: 130, isVerified: true },
+  { name: '삼치 (구이, 100g)', servingSizeG: 100, caloriesPerServing: 165, proteinG: 20.5, carbG: 0, fatG: 9.0, fiberG: 0, sodiumMg: 90, isVerified: true },
+  { name: '동태 (찌개, 100g)', servingSizeG: 100, caloriesPerServing: 98, proteinG: 17.5, carbG: 3.5, fatG: 1.5, fiberG: 0.5, sodiumMg: 680, isVerified: true },
+  { name: '조기 (구이, 100g)', servingSizeG: 100, caloriesPerServing: 145, proteinG: 20.0, carbG: 0, fatG: 7.0, fiberG: 0, sodiumMg: 108, isVerified: true },
+  { name: '새우 (삶은, 100g)', servingSizeG: 100, caloriesPerServing: 99, proteinG: 20.5, carbG: 0.9, fatG: 1.5, fiberG: 0, sodiumMg: 190, isVerified: true },
+  { name: '오징어 (삶은, 100g)', servingSizeG: 100, caloriesPerServing: 92, proteinG: 17.5, carbG: 3.0, fatG: 1.0, fiberG: 0, sodiumMg: 280, isVerified: true },
+  { name: '문어 (삶은, 100g)', servingSizeG: 100, caloriesPerServing: 82, proteinG: 15.5, carbG: 2.0, fatG: 1.0, fiberG: 0, sodiumMg: 230, isVerified: true },
+  { name: '홍합 (삶은, 100g)', servingSizeG: 100, caloriesPerServing: 86, proteinG: 11.5, carbG: 5.5, fatG: 2.0, fiberG: 0, sodiumMg: 420, isVerified: true },
+  { name: '굴 (생, 100g)', servingSizeG: 100, caloriesPerServing: 69, proteinG: 7.5, carbG: 4.5, fatG: 2.0, fiberG: 0, sodiumMg: 380, isVerified: true },
+  { name: '전복 (생, 100g)', servingSizeG: 100, caloriesPerServing: 73, proteinG: 12.5, carbG: 5.5, fatG: 0.5, fiberG: 0, sodiumMg: 220, isVerified: true },
+  { name: '게 (삶은, 100g)', servingSizeG: 100, caloriesPerServing: 97, proteinG: 16.5, carbG: 2.5, fatG: 2.5, fiberG: 0, sodiumMg: 395, isVerified: true },
+  { name: '김 (구운, 1장 2g)', servingSizeG: 2, caloriesPerServing: 5, proteinG: 0.5, carbG: 0.5, fatG: 0.1, fiberG: 0.3, sodiumMg: 35, isVerified: true },
+  { name: '미역 (불린, 100g)', servingSizeG: 100, caloriesPerServing: 19, proteinG: 1.5, carbG: 3.5, fatG: 0.1, fiberG: 2.5, sodiumMg: 420, isVerified: true },
+
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  // 과일 추가
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  { name: '사과 (중, 200g)', servingSizeG: 200, caloriesPerServing: 104, proteinG: 0.5, carbG: 27.6, fatG: 0.3, fiberG: 4.4, sodiumMg: 2, isVerified: true },
+  { name: '배 (중, 250g)', servingSizeG: 250, caloriesPerServing: 130, proteinG: 0.8, carbG: 34.5, fatG: 0.2, fiberG: 5.0, sodiumMg: 3, isVerified: true },
+  { name: '포도 (100g)', servingSizeG: 100, caloriesPerServing: 69, proteinG: 0.7, carbG: 18.1, fatG: 0.2, fiberG: 0.9, sodiumMg: 2, isVerified: true },
+  { name: '복숭아 (중, 150g)', servingSizeG: 150, caloriesPerServing: 60, proteinG: 1.4, carbG: 14.3, fatG: 0.2, fiberG: 2.3, sodiumMg: 0, isVerified: true },
+  { name: '체리 (100g)', servingSizeG: 100, caloriesPerServing: 63, proteinG: 1.1, carbG: 16.1, fatG: 0.2, fiberG: 2.1, sodiumMg: 0, isVerified: true },
+  { name: '키위 (1개 80g)', servingSizeG: 80, caloriesPerServing: 48, proteinG: 0.9, carbG: 11.4, fatG: 0.4, fiberG: 2.3, sodiumMg: 3, isVerified: true },
+  { name: '멜론 (200g)', servingSizeG: 200, caloriesPerServing: 68, proteinG: 1.7, carbG: 16.0, fatG: 0.3, fiberG: 1.8, sodiumMg: 28, isVerified: true },
+  { name: '수박 (200g)', servingSizeG: 200, caloriesPerServing: 60, proteinG: 1.2, carbG: 15.2, fatG: 0.2, fiberG: 0.6, sodiumMg: 2, isVerified: true },
+  { name: '레몬 (1개 58g)', servingSizeG: 58, caloriesPerServing: 17, proteinG: 0.6, carbG: 5.4, fatG: 0.2, fiberG: 1.6, sodiumMg: 1, isVerified: true },
+  { name: '파인애플 (100g)', servingSizeG: 100, caloriesPerServing: 50, proteinG: 0.5, carbG: 13.1, fatG: 0.1, fiberG: 1.4, sodiumMg: 1, isVerified: true },
+  { name: '망고 (100g)', servingSizeG: 100, caloriesPerServing: 60, proteinG: 0.8, carbG: 15.0, fatG: 0.4, fiberG: 1.6, sodiumMg: 1, isVerified: true },
+  { name: '아보카도 (반개 70g)', servingSizeG: 70, caloriesPerServing: 112, proteinG: 1.4, carbG: 5.9, fatG: 10.5, fiberG: 4.6, sodiumMg: 5, isVerified: true },
+  { name: '블루베리 (100g)', servingSizeG: 100, caloriesPerServing: 57, proteinG: 0.7, carbG: 14.5, fatG: 0.3, fiberG: 2.4, sodiumMg: 1, isVerified: true },
+  { name: '라즈베리 (100g)', servingSizeG: 100, caloriesPerServing: 52, proteinG: 1.2, carbG: 11.9, fatG: 0.7, fiberG: 6.5, sodiumMg: 1, isVerified: true },
+  { name: '딸기잼 (1큰술 20g)', servingSizeG: 20, caloriesPerServing: 56, proteinG: 0.1, carbG: 14.0, fatG: 0, fiberG: 0.3, sodiumMg: 5, isVerified: true },
+
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  // 채소 추가
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  { name: '상추 (100g)', servingSizeG: 100, caloriesPerServing: 15, proteinG: 1.3, carbG: 2.9, fatG: 0.2, fiberG: 1.3, sodiumMg: 8, isVerified: true },
+  { name: '루꼴라 (100g)', servingSizeG: 100, caloriesPerServing: 25, proteinG: 2.6, carbG: 3.7, fatG: 0.7, fiberG: 1.6, sodiumMg: 27, isVerified: true },
+  { name: '케일 (100g)', servingSizeG: 100, caloriesPerServing: 49, proteinG: 4.3, carbG: 8.8, fatG: 0.9, fiberG: 3.6, sodiumMg: 38, isVerified: true },
+  { name: '파프리카 빨강 (100g)', servingSizeG: 100, caloriesPerServing: 31, proteinG: 1.0, carbG: 7.2, fatG: 0.3, fiberG: 2.1, sodiumMg: 4, isVerified: true },
+  { name: '파프리카 노랑 (100g)', servingSizeG: 100, caloriesPerServing: 27, proteinG: 1.0, carbG: 6.3, fatG: 0.2, fiberG: 1.7, sodiumMg: 2, isVerified: true },
+  { name: '아스파라거스 (100g)', servingSizeG: 100, caloriesPerServing: 20, proteinG: 2.2, carbG: 3.9, fatG: 0.1, fiberG: 2.1, sodiumMg: 2, isVerified: true },
+  { name: '셀러리 (100g)', servingSizeG: 100, caloriesPerServing: 16, proteinG: 0.7, carbG: 3.0, fatG: 0.2, fiberG: 1.6, sodiumMg: 80, isVerified: true },
+  { name: '적양배추 (100g)', servingSizeG: 100, caloriesPerServing: 31, proteinG: 1.4, carbG: 7.4, fatG: 0.2, fiberG: 2.1, sodiumMg: 27, isVerified: true },
+  { name: '콜리플라워 (100g)', servingSizeG: 100, caloriesPerServing: 25, proteinG: 1.9, carbG: 5.0, fatG: 0.3, fiberG: 2.0, sodiumMg: 30, isVerified: true },
+  { name: '에다마메 (100g)', servingSizeG: 100, caloriesPerServing: 122, proteinG: 11.9, carbG: 8.9, fatG: 5.2, fiberG: 5.2, sodiumMg: 6, isVerified: true },
+  { name: '방울토마토 (100g)', servingSizeG: 100, caloriesPerServing: 18, proteinG: 0.9, carbG: 3.9, fatG: 0.2, fiberG: 1.2, sodiumMg: 5, isVerified: true },
+  { name: '청경채 (100g)', servingSizeG: 100, caloriesPerServing: 13, proteinG: 1.5, carbG: 2.2, fatG: 0.2, fiberG: 1.0, sodiumMg: 65, isVerified: true },
+  { name: '오이 (100g)', servingSizeG: 100, caloriesPerServing: 12, proteinG: 0.7, carbG: 2.9, fatG: 0.1, fiberG: 0.6, sodiumMg: 2, isVerified: true },
+
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  // 서양/인터내셔널 음식
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  { name: '시저샐러드 (200g)', servingSizeG: 200, caloriesPerServing: 290, proteinG: 9.5, carbG: 15.5, fatG: 22.5, fiberG: 3.5, sodiumMg: 620, isVerified: true },
+  { name: '코브샐러드 (300g)', servingSizeG: 300, caloriesPerServing: 390, proteinG: 24.5, carbG: 14.5, fatG: 27.0, fiberG: 5.5, sodiumMg: 750, isVerified: true },
+  { name: '스파게티 볼로네제 (350g)', servingSizeG: 350, caloriesPerServing: 520, proteinG: 22.5, carbG: 65.5, fatG: 16.5, fiberG: 4.5, sodiumMg: 620, isVerified: true },
+  { name: '카르보나라 파스타 (350g)', servingSizeG: 350, caloriesPerServing: 610, proteinG: 20.5, carbG: 68.5, fatG: 28.5, fiberG: 3.0, sodiumMg: 520, isVerified: true },
+  { name: '봉골레파스타 (350g)', servingSizeG: 350, caloriesPerServing: 490, proteinG: 19.5, carbG: 65.0, fatG: 16.0, fiberG: 3.5, sodiumMg: 680, isVerified: true },
+  { name: '리소토 (치즈, 300g)', servingSizeG: 300, caloriesPerServing: 430, proteinG: 12.5, carbG: 62.5, fatG: 14.5, fiberG: 2.5, sodiumMg: 580, isVerified: true },
+  { name: '그라탱 (200g)', servingSizeG: 200, caloriesPerServing: 320, proteinG: 12.5, carbG: 28.5, fatG: 18.0, fiberG: 2.0, sodiumMg: 480, isVerified: true },
+  { name: '타코 (1개 150g)', servingSizeG: 150, caloriesPerServing: 340, proteinG: 18.5, carbG: 30.5, fatG: 14.5, fiberG: 3.5, sodiumMg: 680, isVerified: true },
+  { name: '부리토 (1개 250g)', servingSizeG: 250, caloriesPerServing: 485, proteinG: 22.5, carbG: 58.5, fatG: 17.5, fiberG: 6.0, sodiumMg: 1050, isVerified: true },
+  { name: '클럽샌드위치 (200g)', servingSizeG: 200, caloriesPerServing: 430, proteinG: 22.5, carbG: 38.5, fatG: 20.0, fiberG: 3.5, sodiumMg: 880, isVerified: true },
+  { name: '스테이크 (소, 150g)', servingSizeG: 150, caloriesPerServing: 345, proteinG: 31.5, carbG: 0, fatG: 23.5, fiberG: 0, sodiumMg: 75, isVerified: true },
+  { name: '오므라이스 (에그)', servingSizeG: 300, caloriesPerServing: 460, proteinG: 14.5, carbG: 66.5, fatG: 15.5, fiberG: 2.0, sodiumMg: 680, isVerified: true },
+  { name: '나시고렝 (300g)', servingSizeG: 300, caloriesPerServing: 490, proteinG: 15.5, carbG: 72.5, fatG: 15.5, fiberG: 3.5, sodiumMg: 920, isVerified: true },
+  { name: '팟타이 (300g)', servingSizeG: 300, caloriesPerServing: 460, proteinG: 16.5, carbG: 62.5, fatG: 15.5, fiberG: 3.0, sodiumMg: 820, isVerified: true },
+  { name: '초밥 (8개 세트)', servingSizeG: 240, caloriesPerServing: 392, proteinG: 20.0, carbG: 68.0, fatG: 6.4, fiberG: 0.8, sodiumMg: 880, isVerified: true },
+  { name: '라멘 (돼지뼈, 500ml)', servingSizeG: 500, caloriesPerServing: 515, proteinG: 22.5, carbG: 66.5, fatG: 17.5, fiberG: 2.5, sodiumMg: 2200, isVerified: true },
+  { name: '팔라펠 (100g)', servingSizeG: 100, caloriesPerServing: 333, proteinG: 13.3, carbG: 31.8, fatG: 17.8, fiberG: 6.8, sodiumMg: 294, isVerified: true },
+  { name: '후무스 (50g)', servingSizeG: 50, caloriesPerServing: 118, proteinG: 4.5, carbG: 9.5, fatG: 7.0, fiberG: 3.0, sodiumMg: 200, isVerified: true },
+
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  // 소스 / 조미료 / 기름
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  { name: '올리브오일 (1큰술 14g)', servingSizeG: 14, caloriesPerServing: 124, proteinG: 0, carbG: 0, fatG: 14.0, fiberG: 0, sodiumMg: 0, isVerified: true },
+  { name: '참기름 (1큰술 14g)', servingSizeG: 14, caloriesPerServing: 125, proteinG: 0, carbG: 0, fatG: 14.0, fiberG: 0, sodiumMg: 0, isVerified: true },
+  { name: '마요네즈 (1큰술 15g)', servingSizeG: 15, caloriesPerServing: 99, proteinG: 0.2, carbG: 0.5, fatG: 10.5, fiberG: 0, sodiumMg: 78, isVerified: true },
+  { name: '케첩 (1큰술 17g)', servingSizeG: 17, caloriesPerServing: 19, proteinG: 0.2, carbG: 4.5, fatG: 0.1, fiberG: 0.2, sodiumMg: 178, isVerified: true },
+  { name: '간장 (1큰술 15ml)', servingSizeG: 15, caloriesPerServing: 10, proteinG: 1.0, carbG: 1.5, fatG: 0, fiberG: 0, sodiumMg: 900, isVerified: true },
+  { name: '고추장 (1큰술 18g)', servingSizeG: 18, caloriesPerServing: 47, proteinG: 1.5, carbG: 9.5, fatG: 0.5, fiberG: 0.8, sodiumMg: 410, isVerified: true },
+  { name: '쌈장 (1큰술 18g)', servingSizeG: 18, caloriesPerServing: 38, proteinG: 1.8, carbG: 6.5, fatG: 0.8, fiberG: 0.8, sodiumMg: 480, isVerified: true },
+  { name: '들기름 (1큰술 14g)', servingSizeG: 14, caloriesPerServing: 125, proteinG: 0, carbG: 0, fatG: 14.0, fiberG: 0, sodiumMg: 0, isVerified: true },
+  { name: '버터땅콩 (1큰술 32g)', servingSizeG: 32, caloriesPerServing: 190, proteinG: 7.0, carbG: 8.0, fatG: 16.0, fiberG: 1.5, sodiumMg: 136, isVerified: true },
+  { name: '꿀 (1큰술 21g)', servingSizeG: 21, caloriesPerServing: 64, proteinG: 0.1, carbG: 17.3, fatG: 0, fiberG: 0, sodiumMg: 1, isVerified: true },
+
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  // 냉동/즉석 식품
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  { name: '냉동 만두 (6개 120g)', servingSizeG: 120, caloriesPerServing: 288, proteinG: 11.5, carbG: 36.5, fatG: 10.5, fiberG: 2.0, sodiumMg: 680, isVerified: true },
+  { name: '냉동 피자 (1조각)', servingSizeG: 120, caloriesPerServing: 295, proteinG: 11.5, carbG: 35.0, fatG: 12.0, fiberG: 2.0, sodiumMg: 580, isVerified: true },
+  { name: '냉동 치킨너겟 (100g)', servingSizeG: 100, caloriesPerServing: 248, proteinG: 14.5, carbG: 15.0, fatG: 13.5, fiberG: 0.5, sodiumMg: 450, isVerified: true },
+  { name: '즉석 오트밀 (1팩 30g)', servingSizeG: 30, caloriesPerServing: 107, proteinG: 4.0, carbG: 19.5, fatG: 2.0, fiberG: 2.5, sodiumMg: 52, isVerified: true },
+  { name: '프로틴 쉐이크 (완제품 250ml)', servingSizeG: 250, caloriesPerServing: 180, proteinG: 25.0, carbG: 12.5, fatG: 3.5, fiberG: 0.5, sodiumMg: 200, isVerified: true },
+
 ].map((item) => ({ ...item, source: FoodSource.SYSTEM }));

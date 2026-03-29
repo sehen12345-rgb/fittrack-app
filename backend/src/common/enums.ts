@@ -52,4 +52,5 @@ export enum FoodSource {
   SYSTEM = 'SYSTEM',
   USER_CREATED = 'USER_CREATED',
   OPEN_FOOD_FACTS = 'OPEN_FOOD_FACTS',
+  USDA = 'USDA',
 }

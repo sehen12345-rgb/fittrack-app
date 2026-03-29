@@ -1,6 +1,7 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository, Between } from 'typeorm';
+import { ConfigService } from '@nestjs/config';
 import { FoodItem } from './food-item.entity';
 import { FoodLog } from './food-log.entity';
 import { CreateFoodLogDto, CreateFoodItemDto } from './dto/food.dto';
@@ -16,15 +17,108 @@ export class FoodService {
     @InjectRepository(FoodLog)
     private readonly foodLogRepo: Repository<FoodLog>,
     private readonly achievementsService: AchievementsService,
+    private readonly config: ConfigService,
   ) {}
 
   async searchFoods(query: string, limit = 20): Promise<FoodItem[]> {
-    return this.foodItemRepo
+    const local = await this.foodItemRepo
       .createQueryBuilder('food')
       .where('food.name LIKE :q OR food.brand LIKE :q', { q: `%${query}%` })
       .orderBy('food.isVerified', 'DESC')
       .limit(limit)
       .getMany();
+
+    if (local.length >= limit) return local;
+
+    // 로컬 결과 부족 시 외부 API에서 보완
+    const externals = await this.fetchExternalFoods(query, limit - local.length, new Set(local.map(f => f.name)));
+    return [...local, ...externals];
+  }
+
+  private withTimeout<T>(promise: Promise<T>, ms: number): Promise<T> {
+    return Promise.race([
+      promise,
+      new Promise<T>((_, reject) => setTimeout(() => reject(new Error('timeout')), ms)),
+    ]);
+  }
+
+  private async fetchExternalFoods(query: string, needed: number, existingNames: Set<string>): Promise<FoodItem[]> {
+    const results: FoodItem[] = [];
+
+    // ① USDA FoodData Central (API 키 설정 시)
+    const usdaKey = this.config.get<string>('USDA_API_KEY');
+    if (usdaKey && results.length < needed) {
+      try {
+        const url = `https://api.nal.usda.gov/fdc/v1/foods/search?query=${encodeURIComponent(query)}&api_key=${usdaKey}&pageSize=${needed}&dataType=Foundation,SR%20Legacy,Survey%20(FNDDS)`;
+        const res = await this.withTimeout(fetch(url), 4000);
+        if (res.ok) {
+          const json: any = await res.json();
+          const toSave: Partial<FoodItem>[] = [];
+          for (const food of (json.foods || []).slice(0, needed)) {
+            const name = food.description;
+            if (!name || existingNames.has(name)) continue;
+            const nuts: Record<number, number> = {};
+            for (const n of (food.foodNutrients || [])) nuts[n.nutrientId] = n.value;
+            toSave.push({
+              name,
+              servingSizeG: 100,
+              caloriesPerServing: Math.round(nuts[1008] || 0),
+              proteinG: parseFloat((nuts[1003] || 0).toFixed(1)),
+              carbG: parseFloat((nuts[1005] || 0).toFixed(1)),
+              fatG: parseFloat((nuts[1004] || 0).toFixed(1)),
+              fiberG: parseFloat((nuts[1079] || 0).toFixed(1)),
+              sodiumMg: Math.round((nuts[1093] || 0) * 1000),
+              source: FoodSource.USDA,
+              isVerified: true,
+            });
+            existingNames.add(name);
+          }
+          if (toSave.length > 0) {
+            const saved = await this.foodItemRepo.save(toSave.map(d => this.foodItemRepo.create(d)));
+            results.push(...saved);
+          }
+        }
+      } catch { /* timeout or error — skip */ }
+    }
+
+    // ② Open Food Facts 검색 (fallback)
+    if (results.length < needed) {
+      try {
+        const url = `https://world.openfoodfacts.org/cgi/search.pl?search_terms=${encodeURIComponent(query)}&search_simple=1&action=process&json=1&fields=product_name,product_name_ko,nutriments,brands,serving_size&page_size=${needed + 5}&lc=ko`;
+        const res = await this.withTimeout(fetch(url), 4000);
+        if (res.ok) {
+          const json: any = await res.json();
+          const toSave: Partial<FoodItem>[] = [];
+          for (const p of (json.products || [])) {
+            if (results.length + toSave.length >= needed) break;
+            const name = p.product_name_ko || p.product_name;
+            if (!name || existingNames.has(name)) continue;
+            const n = p.nutriments || {};
+            const serving = parseFloat(p.serving_size) || 100;
+            const cal = Math.round(n['energy-kcal_serving'] || n['energy-kcal_100g'] * serving / 100 || 0);
+            if (cal === 0) continue;
+            toSave.push({
+              name,
+              brand: p.brands || null,
+              servingSizeG: serving,
+              caloriesPerServing: cal,
+              proteinG: parseFloat((n['proteins_serving'] ?? n['proteins_100g'] * serving / 100 ?? 0).toFixed(1)),
+              carbG: parseFloat((n['carbohydrates_serving'] ?? n['carbohydrates_100g'] * serving / 100 ?? 0).toFixed(1)),
+              fatG: parseFloat((n['fat_serving'] ?? n['fat_100g'] * serving / 100 ?? 0).toFixed(1)),
+              source: FoodSource.OPEN_FOOD_FACTS,
+              isVerified: false,
+            });
+            existingNames.add(name);
+          }
+          if (toSave.length > 0) {
+            const saved = await this.foodItemRepo.save(toSave.map(d => this.foodItemRepo.create(d)));
+            results.push(...saved);
+          }
+        }
+      } catch { /* timeout or error — skip */ }
+    }
+
+    return results;
   }
 
   async findByBarcode(barcode: string): Promise<FoodItem> {
