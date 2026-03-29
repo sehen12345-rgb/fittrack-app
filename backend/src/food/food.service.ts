@@ -102,9 +102,9 @@ export class FoodService {
               brand: p.brands || null,
               servingSizeG: serving,
               caloriesPerServing: cal,
-              proteinG: parseFloat((n['proteins_serving'] ?? n['proteins_100g'] * serving / 100 ?? 0).toFixed(1)),
-              carbG: parseFloat((n['carbohydrates_serving'] ?? n['carbohydrates_100g'] * serving / 100 ?? 0).toFixed(1)),
-              fatG: parseFloat((n['fat_serving'] ?? n['fat_100g'] * serving / 100 ?? 0).toFixed(1)),
+              proteinG: parseFloat(((n['proteins_serving'] != null ? n['proteins_serving'] : (n['proteins_100g'] ?? 0) * serving / 100)).toFixed(1)),
+              carbG: parseFloat(((n['carbohydrates_serving'] != null ? n['carbohydrates_serving'] : (n['carbohydrates_100g'] ?? 0) * serving / 100)).toFixed(1)),
+              fatG: parseFloat(((n['fat_serving'] != null ? n['fat_serving'] : (n['fat_100g'] ?? 0) * serving / 100)).toFixed(1)),
               source: FoodSource.OPEN_FOOD_FACTS,
               isVerified: false,
             });

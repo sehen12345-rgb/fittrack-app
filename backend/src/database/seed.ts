@@ -147,6 +147,98 @@ const workouts: Partial<WorkoutTemplate>[] = [
   { name: '바닥 스트레칭 (전신)', category: WorkoutCategory.FLEXIBILITY, targetMuscleGroups: ['full_body'], equipmentRequired: ['mat'], caloriesBurnedPerMinute: 2, isSystem: true },
   { name: '태극권', category: WorkoutCategory.FLEXIBILITY, targetMuscleGroups: ['full_body'], equipmentRequired: [], caloriesBurnedPerMinute: 3, isSystem: true },
 
+  // ━━ 러닝 프로그램 ━━
+  { name: '5K 달리기', category: WorkoutCategory.CARDIO, targetMuscleGroups: ['quads', 'calves', 'glutes'], equipmentRequired: [], caloriesBurnedPerMinute: 10, description: '5킬로미터 달리기 훈련', isSystem: true },
+  { name: '10K 달리기', category: WorkoutCategory.CARDIO, targetMuscleGroups: ['quads', 'calves', 'glutes'], equipmentRequired: [], caloriesBurnedPerMinute: 10, description: '10킬로미터 달리기 훈련', isSystem: true },
+  { name: '하프마라톤 훈련', category: WorkoutCategory.CARDIO, targetMuscleGroups: ['quads', 'calves', 'glutes'], equipmentRequired: [], caloriesBurnedPerMinute: 9, isSystem: true },
+  { name: '마라톤 훈련', category: WorkoutCategory.CARDIO, targetMuscleGroups: ['full_body'], equipmentRequired: [], caloriesBurnedPerMinute: 9, isSystem: true },
+  { name: '트레일 러닝', category: WorkoutCategory.CARDIO, targetMuscleGroups: ['full_body'], equipmentRequired: [], caloriesBurnedPerMinute: 11, description: '산길·비포장도로 달리기', isSystem: true },
+  { name: '템포런', category: WorkoutCategory.CARDIO, targetMuscleGroups: ['quads', 'calves'], equipmentRequired: [], caloriesBurnedPerMinute: 12, description: '젖산 역치를 높이는 지속 빠른 페이스 달리기', isSystem: true },
+  { name: '파틀렉 훈련', category: WorkoutCategory.CARDIO, targetMuscleGroups: ['quads', 'calves', 'glutes'], equipmentRequired: [], caloriesBurnedPerMinute: 11, description: '속도를 자유롭게 변화시키는 스웨덴식 달리기', isSystem: true },
+  { name: '런닝 드릴 (고니 들기)', category: WorkoutCategory.CARDIO, targetMuscleGroups: ['quads', 'hip_flexors'], equipmentRequired: [], caloriesBurnedPerMinute: 10, isSystem: true },
+  { name: '런닝 드릴 (뒤꿈치 차기)', category: WorkoutCategory.CARDIO, targetMuscleGroups: ['hamstrings', 'calves'], equipmentRequired: [], caloriesBurnedPerMinute: 10, isSystem: true },
+
+  // ━━ 필라테스 ━━
+  { name: '필라테스 (헌드레드)', category: WorkoutCategory.FLEXIBILITY, targetMuscleGroups: ['abs', 'core'], equipmentRequired: ['mat'], caloriesBurnedPerMinute: 4, description: '호흡과 함께 복부 수축을 100회 반복', isSystem: true },
+  { name: '필라테스 (롤업)', category: WorkoutCategory.FLEXIBILITY, targetMuscleGroups: ['abs', 'back'], equipmentRequired: ['mat'], caloriesBurnedPerMinute: 3, description: '척추를 한 마디씩 분절하며 올라오는 동작', isSystem: true },
+  { name: '필라테스 (레그 서클)', category: WorkoutCategory.FLEXIBILITY, targetMuscleGroups: ['hip_flexors', 'abs'], equipmentRequired: ['mat'], caloriesBurnedPerMinute: 3, isSystem: true },
+  { name: '필라테스 (롤링 라이크 어볼)', category: WorkoutCategory.FLEXIBILITY, targetMuscleGroups: ['back', 'abs'], equipmentRequired: ['mat'], caloriesBurnedPerMinute: 3, description: '척추 마사지 동작', isSystem: true },
+  { name: '필라테스 (싱글 레그 스트레치)', category: WorkoutCategory.FLEXIBILITY, targetMuscleGroups: ['abs', 'hip_flexors'], equipmentRequired: ['mat'], caloriesBurnedPerMinute: 4, isSystem: true },
+  { name: '필라테스 (더블 레그 스트레치)', category: WorkoutCategory.FLEXIBILITY, targetMuscleGroups: ['abs', 'hip_flexors'], equipmentRequired: ['mat'], caloriesBurnedPerMinute: 4, isSystem: true },
+  { name: '필라테스 (시저)', category: WorkoutCategory.FLEXIBILITY, targetMuscleGroups: ['abs', 'hip_flexors', 'hamstrings'], equipmentRequired: ['mat'], caloriesBurnedPerMinute: 4, isSystem: true },
+  { name: '필라테스 (크리스크로스)', category: WorkoutCategory.FLEXIBILITY, targetMuscleGroups: ['obliques', 'abs'], equipmentRequired: ['mat'], caloriesBurnedPerMinute: 4, isSystem: true },
+  { name: '필라테스 (스완)', category: WorkoutCategory.FLEXIBILITY, targetMuscleGroups: ['back', 'glutes'], equipmentRequired: ['mat'], caloriesBurnedPerMinute: 3, description: '엎드린 자세에서 상체를 들어올리는 척추 신전', isSystem: true },
+  { name: '필라테스 (티저)', category: WorkoutCategory.FLEXIBILITY, targetMuscleGroups: ['abs', 'hip_flexors'], equipmentRequired: ['mat'], caloriesBurnedPerMinute: 4, description: 'V자 모양으로 균형 잡는 고급 동작', isSystem: true },
+  { name: '필라테스 (사이드 킥)', category: WorkoutCategory.FLEXIBILITY, targetMuscleGroups: ['glutes', 'hip_abductors', 'core'], equipmentRequired: ['mat'], caloriesBurnedPerMinute: 3, isSystem: true },
+  { name: '필라테스 (스윔)', category: WorkoutCategory.FLEXIBILITY, targetMuscleGroups: ['back', 'glutes', 'hamstrings'], equipmentRequired: ['mat'], caloriesBurnedPerMinute: 4, description: '수영하듯 팔다리를 교차로 들어올리는 동작', isSystem: true },
+  { name: '필라테스 (플랭크 투 다운독)', category: WorkoutCategory.FLEXIBILITY, targetMuscleGroups: ['core', 'shoulders', 'hamstrings'], equipmentRequired: ['mat'], caloriesBurnedPerMinute: 4, isSystem: true },
+  { name: '리포머 필라테스', category: WorkoutCategory.FLEXIBILITY, targetMuscleGroups: ['full_body'], equipmentRequired: ['reformer'], caloriesBurnedPerMinute: 5, description: '스프링 저항 기구를 활용한 필라테스', isSystem: true },
+  { name: '매트 필라테스', category: WorkoutCategory.FLEXIBILITY, targetMuscleGroups: ['core', 'full_body'], equipmentRequired: ['mat'], caloriesBurnedPerMinute: 4, isSystem: true },
+
+  // ━━ 크로스핏 / 기능성 훈련 ━━
+  { name: '크로스핏 WOD', category: WorkoutCategory.CARDIO, targetMuscleGroups: ['full_body'], equipmentRequired: [], caloriesBurnedPerMinute: 14, description: 'Workout of the Day — 다양한 고강도 복합 운동', isSystem: true },
+  { name: '크로스핏 머피 (Murph)', category: WorkoutCategory.CARDIO, targetMuscleGroups: ['full_body'], equipmentRequired: ['pullup_bar'], caloriesBurnedPerMinute: 13, description: '런닝 1마일 + 풀업 100 + 푸시업 200 + 스쿼트 300 + 런닝 1마일', isSystem: true },
+  { name: '크로스핏 신디 (Cindy)', category: WorkoutCategory.CARDIO, targetMuscleGroups: ['full_body'], equipmentRequired: ['pullup_bar'], caloriesBurnedPerMinute: 13, description: '20분 AMRAP: 풀업 5 + 푸시업 10 + 스쿼트 15', isSystem: true },
+  { name: '크로스핏 헬렌 (Helen)', category: WorkoutCategory.CARDIO, targetMuscleGroups: ['full_body'], equipmentRequired: ['kettlebell', 'pullup_bar'], caloriesBurnedPerMinute: 13, description: '3라운드: 400m 달리기 + 케틀벨 스윙 21 + 풀업 12', isSystem: true },
+  { name: '크로스핏 파란 (Fran)', category: WorkoutCategory.STRENGTH, targetMuscleGroups: ['full_body'], equipmentRequired: ['barbell'], caloriesBurnedPerMinute: 14, description: '쓰러스터 + 풀업 21-15-9 반복', isSystem: true },
+  { name: 'AMRAP 훈련', category: WorkoutCategory.CARDIO, targetMuscleGroups: ['full_body'], equipmentRequired: [], caloriesBurnedPerMinute: 13, description: 'As Many Rounds/Reps As Possible — 정해진 시간 내 최대 반복', isSystem: true },
+  { name: 'EMOM 훈련', category: WorkoutCategory.CARDIO, targetMuscleGroups: ['full_body'], equipmentRequired: [], caloriesBurnedPerMinute: 12, description: 'Every Minute On the Minute — 1분마다 정해진 횟수 수행', isSystem: true },
+  { name: '타바타 인터벌', category: WorkoutCategory.CARDIO, targetMuscleGroups: ['full_body'], equipmentRequired: [], caloriesBurnedPerMinute: 15, description: '20초 고강도 + 10초 휴식 × 8세트', isSystem: true },
+  { name: '맨메이커', category: WorkoutCategory.STRENGTH, targetMuscleGroups: ['full_body'], equipmentRequired: ['dumbbell'], caloriesBurnedPerMinute: 13, description: '덤벨 로우 + 푸시업 + 스쿼트 + 프레스 복합 동작', isSystem: true },
+  { name: '터키시 겟업', category: WorkoutCategory.STRENGTH, targetMuscleGroups: ['full_body', 'core', 'shoulders'], equipmentRequired: ['kettlebell', 'dumbbell'], caloriesBurnedPerMinute: 8, isSystem: true },
+  { name: '월볼 (Wall Ball)', category: WorkoutCategory.STRENGTH, targetMuscleGroups: ['quads', 'glutes', 'shoulders'], equipmentRequired: ['medicine_ball', 'wall'], caloriesBurnedPerMinute: 11, isSystem: true },
+  { name: '슬래머볼 (Slam Ball)', category: WorkoutCategory.STRENGTH, targetMuscleGroups: ['full_body', 'core'], equipmentRequired: ['slam_ball'], caloriesBurnedPerMinute: 12, isSystem: true },
+  { name: '핸드스탠드 푸시업', category: WorkoutCategory.STRENGTH, targetMuscleGroups: ['shoulders', 'triceps', 'core'], equipmentRequired: [], caloriesBurnedPerMinute: 9, isSystem: true },
+  { name: '머슬업', category: WorkoutCategory.STRENGTH, targetMuscleGroups: ['back', 'chest', 'triceps'], equipmentRequired: ['pullup_bar', 'rings'], caloriesBurnedPerMinute: 10, isSystem: true },
+  { name: '링 딥스', category: WorkoutCategory.STRENGTH, targetMuscleGroups: ['chest', 'triceps'], equipmentRequired: ['rings'], caloriesBurnedPerMinute: 8, isSystem: true },
+  { name: '로프 클라임', category: WorkoutCategory.STRENGTH, targetMuscleGroups: ['back', 'biceps', 'core'], equipmentRequired: ['rope'], caloriesBurnedPerMinute: 10, isSystem: true },
+
+  // ━━ 요가 (종류별) ━━
+  { name: '빈야사 요가', category: WorkoutCategory.FLEXIBILITY, targetMuscleGroups: ['full_body'], equipmentRequired: ['mat'], caloriesBurnedPerMinute: 5, description: '호흡에 맞춰 흐르듯 연결하는 동적 요가', isSystem: true },
+  { name: '하타 요가', category: WorkoutCategory.FLEXIBILITY, targetMuscleGroups: ['full_body'], equipmentRequired: ['mat'], caloriesBurnedPerMinute: 3, description: '정적 자세를 유지하며 스트레칭하는 기초 요가', isSystem: true },
+  { name: '아쉬탕가 요가', category: WorkoutCategory.FLEXIBILITY, targetMuscleGroups: ['full_body'], equipmentRequired: ['mat'], caloriesBurnedPerMinute: 6, description: '정해진 순서를 빠르게 수행하는 고강도 요가', isSystem: true },
+  { name: '인 요가 (음 요가)', category: WorkoutCategory.FLEXIBILITY, targetMuscleGroups: ['full_body', 'hip_flexors'], equipmentRequired: ['mat'], caloriesBurnedPerMinute: 2, description: '자세를 3~5분 유지하는 깊은 결합조직 스트레칭', isSystem: true },
+  { name: '리스토라티브 요가', category: WorkoutCategory.FLEXIBILITY, targetMuscleGroups: ['full_body'], equipmentRequired: ['mat', 'bolster'], caloriesBurnedPerMinute: 2, description: '도구를 이용해 완전히 이완하는 회복 요가', isSystem: true },
+  { name: '핫 요가', category: WorkoutCategory.FLEXIBILITY, targetMuscleGroups: ['full_body'], equipmentRequired: ['mat'], caloriesBurnedPerMinute: 7, description: '40°C 환경에서 수행하는 고온 요가', isSystem: true },
+  { name: '파워 요가', category: WorkoutCategory.FLEXIBILITY, targetMuscleGroups: ['full_body', 'core'], equipmentRequired: ['mat'], caloriesBurnedPerMinute: 6, isSystem: true },
+  { name: '쿤달리니 요가', category: WorkoutCategory.FLEXIBILITY, targetMuscleGroups: ['core', 'full_body'], equipmentRequired: ['mat'], caloriesBurnedPerMinute: 4, description: '에너지 각성을 목표로 하는 요가', isSystem: true },
+
+  // ━━ 수영 (종류별) ━━
+  { name: '자유형 (크롤)', category: WorkoutCategory.CARDIO, targetMuscleGroups: ['full_body', 'back', 'shoulders'], equipmentRequired: [], caloriesBurnedPerMinute: 10, isSystem: true },
+  { name: '배영', category: WorkoutCategory.CARDIO, targetMuscleGroups: ['back', 'shoulders', 'legs'], equipmentRequired: [], caloriesBurnedPerMinute: 9, isSystem: true },
+  { name: '평영', category: WorkoutCategory.CARDIO, targetMuscleGroups: ['chest', 'inner_thigh', 'legs'], equipmentRequired: [], caloriesBurnedPerMinute: 8, isSystem: true },
+  { name: '접영', category: WorkoutCategory.CARDIO, targetMuscleGroups: ['chest', 'back', 'shoulders', 'core'], equipmentRequired: [], caloriesBurnedPerMinute: 12, isSystem: true },
+  { name: '수영 인터벌', category: WorkoutCategory.CARDIO, targetMuscleGroups: ['full_body'], equipmentRequired: [], caloriesBurnedPerMinute: 12, description: '짧은 거리를 빠르게 반복하는 고강도 수영', isSystem: true },
+  { name: '아쿠아 에어로빅', category: WorkoutCategory.CARDIO, targetMuscleGroups: ['full_body'], equipmentRequired: [], caloriesBurnedPerMinute: 6, description: '물속에서 하는 에어로빅 운동', isSystem: true },
+  { name: '오픈워터 수영', category: WorkoutCategory.CARDIO, targetMuscleGroups: ['full_body'], equipmentRequired: [], caloriesBurnedPerMinute: 11, isSystem: true },
+
+  // ━━ 댄스 / 에어로빅 ━━
+  { name: '줌바 피트니스', category: WorkoutCategory.CARDIO, targetMuscleGroups: ['full_body'], equipmentRequired: [], caloriesBurnedPerMinute: 8, description: '라틴댄스 기반 유산소 운동', isSystem: true },
+  { name: '에어로빅', category: WorkoutCategory.CARDIO, targetMuscleGroups: ['full_body'], equipmentRequired: [], caloriesBurnedPerMinute: 7, isSystem: true },
+  { name: '힙합 댄스 피트니스', category: WorkoutCategory.CARDIO, targetMuscleGroups: ['full_body'], equipmentRequired: [], caloriesBurnedPerMinute: 8, isSystem: true },
+  { name: '바레 (Barre)', category: WorkoutCategory.FLEXIBILITY, targetMuscleGroups: ['glutes', 'quads', 'core'], equipmentRequired: ['barre'], caloriesBurnedPerMinute: 5, description: '발레 동작 기반 소근육 강화 훈련', isSystem: true },
+  { name: 'K-팝 댄스', category: WorkoutCategory.CARDIO, targetMuscleGroups: ['full_body'], equipmentRequired: [], caloriesBurnedPerMinute: 7, isSystem: true },
+  { name: '재즈댄스 피트니스', category: WorkoutCategory.CARDIO, targetMuscleGroups: ['full_body'], equipmentRequired: [], caloriesBurnedPerMinute: 7, isSystem: true },
+  { name: '살사댄스', category: WorkoutCategory.CARDIO, targetMuscleGroups: ['full_body'], equipmentRequired: [], caloriesBurnedPerMinute: 6, isSystem: true },
+  { name: '벨리댄스', category: WorkoutCategory.FLEXIBILITY, targetMuscleGroups: ['core', 'obliques', 'hips'], equipmentRequired: [], caloriesBurnedPerMinute: 5, isSystem: true },
+
+  // ━━ 격투기 / 무술 ━━
+  { name: '복싱', category: WorkoutCategory.CARDIO, targetMuscleGroups: ['shoulders', 'arms', 'core'], equipmentRequired: ['boxing_gloves', 'punching_bag'], caloriesBurnedPerMinute: 11, isSystem: true },
+  { name: '킥복싱 (무에타이)', category: WorkoutCategory.CARDIO, targetMuscleGroups: ['full_body'], equipmentRequired: ['boxing_gloves', 'punching_bag'], caloriesBurnedPerMinute: 12, isSystem: true },
+  { name: '태권도', category: WorkoutCategory.SPORTS, targetMuscleGroups: ['full_body', 'quads', 'calves'], equipmentRequired: [], caloriesBurnedPerMinute: 9, isSystem: true },
+  { name: '유도', category: WorkoutCategory.SPORTS, targetMuscleGroups: ['full_body'], equipmentRequired: ['mat'], caloriesBurnedPerMinute: 9, isSystem: true },
+  { name: '브라질리언 주짓수', category: WorkoutCategory.SPORTS, targetMuscleGroups: ['full_body', 'core'], equipmentRequired: ['mat'], caloriesBurnedPerMinute: 9, isSystem: true },
+  { name: 'MMA (종합격투기)', category: WorkoutCategory.SPORTS, targetMuscleGroups: ['full_body'], equipmentRequired: [], caloriesBurnedPerMinute: 12, isSystem: true },
+  { name: '쿵푸 / 무술', category: WorkoutCategory.SPORTS, targetMuscleGroups: ['full_body'], equipmentRequired: [], caloriesBurnedPerMinute: 8, isSystem: true },
+  { name: '복싱 섀도우 (섀도우복싱)', category: WorkoutCategory.CARDIO, targetMuscleGroups: ['shoulders', 'arms', 'core'], equipmentRequired: [], caloriesBurnedPerMinute: 9, isSystem: true },
+
+  // ━━ 실내 기구 추가 ━━
+  { name: '스텝퍼 (계단 기구)', category: WorkoutCategory.CARDIO, targetMuscleGroups: ['quads', 'glutes', 'calves'], equipmentRequired: ['stepper'], caloriesBurnedPerMinute: 8, isSystem: true },
+  { name: '핸드바이크', category: WorkoutCategory.CARDIO, targetMuscleGroups: ['shoulders', 'arms', 'core'], equipmentRequired: ['hand_bike'], caloriesBurnedPerMinute: 6, isSystem: true },
+  { name: '버티컬 클라이머', category: WorkoutCategory.CARDIO, targetMuscleGroups: ['full_body'], equipmentRequired: ['climber_machine'], caloriesBurnedPerMinute: 11, isSystem: true },
+  { name: '슬레드 푸시/풀', category: WorkoutCategory.STRENGTH, targetMuscleGroups: ['quads', 'glutes', 'calves', 'back'], equipmentRequired: ['sled'], caloriesBurnedPerMinute: 12, isSystem: true },
+  { name: '트램폴린 운동', category: WorkoutCategory.CARDIO, targetMuscleGroups: ['quads', 'calves', 'core'], equipmentRequired: ['trampoline'], caloriesBurnedPerMinute: 8, isSystem: true },
+
   // ━━ 스포츠 ━━
   { name: '농구', category: WorkoutCategory.SPORTS, targetMuscleGroups: ['full_body'], equipmentRequired: [], caloriesBurnedPerMinute: 9, isSystem: true },
   { name: '축구', category: WorkoutCategory.SPORTS, targetMuscleGroups: ['full_body'], equipmentRequired: [], caloriesBurnedPerMinute: 9, isSystem: true },

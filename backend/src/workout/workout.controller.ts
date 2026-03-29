@@ -20,6 +20,12 @@ export class WorkoutController {
     return this.workoutService.getTemplates(q);
   }
 
+  @Post('workouts/templates/sync')
+  @ApiOperation({ summary: 'wger API에서 운동 데이터 동기화 (관리자)' })
+  syncTemplates() {
+    return this.workoutService.syncFromWger();
+  }
+
   @Get('workouts/templates/:id/history')
   @ApiOperation({ summary: '특정 운동 이전 기록' })
   getHistory(@CurrentUser('id') userId: string, @Param('id') id: string) {
